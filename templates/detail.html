@@ -4,7 +4,10 @@
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/amazeui.min.css' %}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="{% static 'css/detail.css' %}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/components/slider.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/components/slidenav.min.css' %}" rel="stylesheet" type="text/css"/>
     <script src="{% static 'js/amazeui.min.js' %}"></script>
+    <script src="{% static 'js/components/slider.min.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -84,64 +87,105 @@
             <div class="am-panel am-panel-default" id="team">
                 <div class="am-panel-hd">类似推荐</div>
                 <div class="am-panel-bd">
-                    <p>主唱：小球主要为棉花糖[katncandix2]的歌词创作人.叫小球原因是因为小球以前喜欢穿宽宽的衣裤,风大时跑起来像球.因为小球比较怕冷，容易感冒 所以平时都会加个围巾.</p>
-                    <p>团长：圣哲主要为棉花糖[katncandix2]的制作人以及曲创作人，平时演出时以木吉他为主要乐器,大家可以叫他老板哦~</p>
+                    <div class="uk-slidenav-position" data-uk-slider="{center:true}">
+                        <div class="uk-slider-container">
+                            <ul class="uk-slider uk-grid-width-medium-1-4"
+                                style="min-width: 2468.25px; min-height: 137px; transform: translateX(-103px);">
+                                <li class="uk-slide-before" style="left: 0px; width: 205.688px;"><img
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzYwMHg0MDAvc2t5L2F1dG8vdGV4dDoxL3NpemU6MTAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi41LjIuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcy8+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwRDhGREIiLz48Zz48dGV4dCB4PSIyNjMiIHk9IjI0NS45IiBzdHlsZT0iZmlsbDojRkZGRkZGO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwMHB0Ij4xPC90ZXh0PjwvZz48L3N2Zz4="
+                                        width="600" height="400" alt="1 [600x400]" draggable="false"
+                                        data-src="holder.js/600x400/sky/auto/text:1/size:100"
+                                        data-holder-rendered="true"></li>
+                                <li class="uk-slide-before" style="left: 205.688px; width: 205.688px;"><img
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzYwMHg0MDAvdmluZS9hdXRvL3RleHQ6Mi9zaXplOjEwMApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNS4yLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnMvPjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjMzlEQkFDIi8+PGc+PHRleHQgeD0iMjYzIiB5PSIyNDUuOSIgc3R5bGU9ImZpbGw6IzFFMjkyQztmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMDBwdCI+MjwvdGV4dD48L2c+PC9zdmc+"
+                                        width="600" height="400" alt="2 [600x400]" draggable="false"
+                                        data-src="holder.js/600x400/vine/auto/text:2/size:100"
+                                        data-holder-rendered="true"></li>
+                                <li class="uk-active" style="left: 411.375px; width: 205.688px;"><img
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzYwMHg0MDAvbGF2YS9hdXRvL3RleHQ6My9zaXplOjEwMApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNS4yLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnMvPjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjg1OTFBIi8+PGc+PHRleHQgeD0iMjYzIiB5PSIyNDUuOSIgc3R5bGU9ImZpbGw6IzFDMjg0Njtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMDBwdCI+MzwvdGV4dD48L2c+PC9zdmc+"
+                                        width="600" height="400" alt="3 [600x400]" draggable="false"
+                                        data-src="holder.js/600x400/lava/auto/text:3/size:100"
+                                        data-holder-rendered="true"></li>
+                            </ul>
+                        </div>
+                        <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous"
+                           data-uk-slider-item="previous"></a>
+                        <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next"
+                           data-uk-slider-item="next"></a>
+                    </div>
                 </div>
             </div>
 
             <div class="am-panel am-panel-default" id="ep">
                 <div class="am-panel-hd">评论</div>
                 <div class="am-panel-bd">
+                    <form action="" method="post" id="commentform">
+                        <textarea class="comment_content" name="comment_content" id="comment_content"
+                                  placeholder="写下你的评论…" style="height: 84px;"></textarea>
+                        <div class="bot_bar clearfix" style="opacity: 1;">
+                            <div id="ubbtools" class="add_code">
+                                <a href="#insertcode" code="code" target="_self"><i
+                                        class="icon iconfont icon-daima"></i></a>
+                            </div>
+
+                            <input type="hidden" id="comment_replyId" name="comment_replyId">
+                            <input type="hidden" id="comment_userId" name="comment_userId" value="">
+                            <input type="hidden" id="commentId" name="commentId" value="">
+                            <input type="submit" class="btn btn-redborder" value="发表评论">
+                            <span id="tip_comment" class="tip" style="display: none;">还能输入1000个字符</span></div>
+                    </form>
                     <ul class="am-comments-list am-comments-list-flip">
-                      <li class="am-comment">
-                        <article class="am-comment">
-                        <a href="#link-to-user-home">
-                            <img src="" alt="" class="am-comment-avatar" width="48" height="48"/>
-                        </a>
+                        <li class="am-comment">
+                            <article class="am-comment">
+                                <a href="#link-to-user-home">
+                                    <img src="" alt="" class="am-comment-avatar" width="48" height="48"/>
+                                </a>
 
-                        <div class="am-comment-main">
-                            <header class="am-comment-hd">
-                                <!--<h3 class="am-comment-title">评论标题</h3>-->
-                                <div class="am-comment-meta">
-                                    <a href="#link-to-user" class="am-comment-author">某人</a>
-                                    评论于
-                                    <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">
-                                        2014-7-12 15:30
-                                    </time>
+                                <div class="am-comment-main">
+                                    <header class="am-comment-hd">
+                                        <!--<h3 class="am-comment-title">评论标题</h3>-->
+                                        <div class="am-comment-meta">
+                                            <a href="#link-to-user" class="am-comment-author">某人</a>
+                                            评论于
+                                            <time datetime="2013-07-27T04:54:29-07:00"
+                                                  title="2013年7月27日 下午7:54 格林尼治标准时间+0800">
+                                                2014-7-12 15:30
+                                            </time>
+                                        </div>
+                                    </header>
+
+                                    <div class="am-comment-bd">
+                                        ...
+                                    </div>
                                 </div>
-                            </header>
+                            </article>
+                        </li>
 
-                            <div class="am-comment-bd">
-                                ...
-                            </div>
-                        </div>
-                    </article>
-                      </li>
+                        <li class="am-comment">
+                            <article class="am-comment">
+                                <a href="#link-to-user-home">
+                                    <img src="" alt="" class="am-comment-avatar" width="48" height="48"/>
+                                </a>
 
-                      <li class="am-comment">
-                        <article class="am-comment">
-                        <a href="#link-to-user-home">
-                            <img src="" alt="" class="am-comment-avatar" width="48" height="48"/>
-                        </a>
+                                <div class="am-comment-main">
+                                    <header class="am-comment-hd">
+                                        <!--<h3 class="am-comment-title">评论标题</h3>-->
+                                        <div class="am-comment-meta">
+                                            <a href="#link-to-user" class="am-comment-author">某人</a>
+                                            评论于
+                                            <time datetime="2013-07-27T04:54:29-07:00"
+                                                  title="2013年7月27日 下午7:54 格林尼治标准时间+0800">
+                                                2014-7-12 15:30
+                                            </time>
+                                        </div>
+                                    </header>
 
-                        <div class="am-comment-main">
-                            <header class="am-comment-hd">
-                                <!--<h3 class="am-comment-title">评论标题</h3>-->
-                                <div class="am-comment-meta">
-                                    <a href="#link-to-user" class="am-comment-author">某人</a>
-                                    评论于
-                                    <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">
-                                        2014-7-12 15:30
-                                    </time>
+                                    <div class="am-comment-bd">
+                                        ...
+                                    </div>
                                 </div>
-                            </header>
-
-                            <div class="am-comment-bd">
-                                ...
-                            </div>
-                        </div>
-                    </article>
-                      </li>
+                            </article>
+                        </li>
                     </ul>
                 </div>
             </div>

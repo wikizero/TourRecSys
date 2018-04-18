@@ -24,10 +24,7 @@ urlpatterns = [
 
     #首页
     url(r'^$', view.init),
-<<<<<<< HEAD
 
     #详情
     url(r'^detail', view.detail),
-=======
->>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
 ]
