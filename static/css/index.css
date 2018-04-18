@@ -1,0 +1,185 @@
+<<<<<<< HEAD
+#slider{
+    min-width: 1200px;
+    position: relative;
+}
+
+=======
+>>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
+.slidenav{
+    display: block !important;
+    background: #000000;
+    opacity: 0.4;
+    width: 50px !important;
+}
+
+.uk-slidenav-previous{
+    left: 0 !important;
+}
+
+.uk-slidenav-next{
+    right: 0 !important;
+}
+
+#tour_content{
+    width: 1200px;
+    margin: 40px auto 0;
+}
+
+#content1{
+    font-size: 26px;
+    font-family: "Microsoft YaHei";
+    color: #A452A2;
+}
+
+.big_img{
+    width: 468px;
+    height: 412px;
+}
+
+.small_img{
+    width: 224px;
+    height: 196px;
+}
+
+.img_list{
+    height: 433px;
+}
+
+<<<<<<< HEAD
+.img_list2{
+    height: 480px;
+}
+
+.img_list ul, .img_list2 ul{
+=======
+.img_list ul{
+>>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
+    float: left;
+}
+
+.img_grid1{
+    padding: 10px 0 10px 0;
+}
+
+.img_grid2{
+    margin: 0;
+    padding: 10px 0 10px 0;;
+}
+
+<<<<<<< HEAD
+.img_grid3{
+    margin: 0;
+    padding: 3px 0 0 0;
+}
+
+.img_grid1 li, .img_grid2 li, .img_grid3 li{
+=======
+.img_grid1 li{
+>>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
+    float: left;
+    display: inline-block;
+}
+
+.img_grid2 li{
+    padding: 0 0 0 17px;
+    display: inline-block;
+}
+<<<<<<< HEAD
+
+.img_grid3 li{
+    padding: 0 0 0 3px;
+    display: inline-block;
+}
+
+.content_part1{
+    height: 520px;
+}
+
+.content_part2{
+    height: 580px;
+}
+
+#content2{
+    font-size: 26px;
+    font-family: "Microsoft YaHei";
+    color: #52B504;
+}
+
+.box_big_img{
+    width: 410px;
+    height: 501px;
+}
+
+.little_img{
+    width: 258px;
+    height: 230px;
+}
+
+.little_img1{
+    width: 470px;
+    height: 268px;
+}
+
+.little_img2{
+    width: 307px;
+    height: 268px;
+}
+
+.e_searchbox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 640px;
+    height: 44px;
+    z-index: 5;
+    opacity: 0.8;
+    margin-left: -320px;
+    margin-top: -22px;
+}
+
+.e_search_input{
+    background-color: #fdfdfd;
+    width: 530px;
+    height: 30px;
+    font-size: 18px;
+    font-family: "microsoft yahei";
+    line-height: 30px;
+    color: #666;
+    border: 0 none;
+    margin: 8px 0 0;
+    padding: 0;
+    outline: 0 none;
+}
+
+.search_inputbox{
+    float: left;
+    display: inline;
+    background-color: #fdfdfd;
+    width: 544px;
+    height: 45px;
+    padding-left: 10px;
+    border-left: #dbdbdb 1px solid;
+    border-radius: 5px 0 0 5px;
+}
+
+.btn_search{
+        float: left;
+    display: inline;
+    background-color: #f93;
+    width: 80px;
+    height: 45px;
+    font-size: 24px;
+    line-height: 45px;
+    text-align: center;
+    font-family: tahoma;
+    color: #fff;
+    border: 0 none;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+=======
+>>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7

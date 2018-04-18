@@ -1,0 +1,40 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/common.css' %}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/uikit.min.css' %}" rel="stylesheet" type="text/css"/>
+    <script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+    <script src="{% static 'js/uikit.min.js' %}"></script>
+    <script src="{% static 'js/common.js' %}"></script>
+    {% block head %}
+    {% endblock %}
+    <title>旅游推荐系统</title>
+</head>
+<body>
+<div id="top">
+    <div id="head_login" class="font">
+{#        <div id="logo" class="left">旅游推荐系统</div>#}
+        <div class="right">
+            <ul id="box_login">
+                <li>登陆</li>
+                <li>|</li>
+                <li>注册</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="nav">
+    <nav class="uk-navbar">
+        <ul class="uk-navbar-nav">
+            <li><a href="">首页</a></li>
+            <li><a href="">....</a></li>
+        </ul>
+    </nav>
+</div>
+{% block content %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/amazeui.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}" rel="stylesheet" type="text/css"/>
+    <script src="{% static 'js/amazeui.min.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div id="detail_html">
+        <ol class="am-breadcrumb">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">分类</a></li>
+            <li class="am-active">内容</li>
+        </ol>
+
+        <div id="detail_content">
+            <div id="detail_slider" data-am-widget="slider" class="am-slider am-slider-c3"
+                 data-am-slider='{"controlNav":false}'>
+                <ul class="am-slides">
+                    <li>
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg">
+                        <div class="am-slider-desc">
+                            <div class="am-slider-counter"><span class="am-active">1</span>/4</div>
+                            远方 有一个地方 那里种有我们的梦想
+                        </div>
+
+                    </li>
+                    <li>
+                        <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg">
+                        <div class="am-slider-desc">
+                            <div class="am-slider-counter"><span class="am-active">2</span>/4</div>
+                            某天 也许会相遇 相遇在这个好地方
+                        </div>
+
+                    </li>
+                    <li>
+                        <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg">
+                        <div class="am-slider-desc">
+                            <div class="am-slider-counter"><span class="am-active">3</span>/4</div>
+                            不要太担心 只因为我相信 终会走过这条遥远的道路
+                        </div>
+
+                    </li>
+                    <li>
+                        <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg">
+                        <div class="am-slider-desc">
+                            <div class="am-slider-counter"><span class="am-active">4</span>/4</div>
+                            OH PARA PARADISE 是否那么重要 你是否那么地遥远
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+            <div id="detail_slider_describe">
+                <span class="am-icon-heart"> 喜欢</span>
+                <span class="am-icon-heart-o"> 不喜欢</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div id="detail_other">
+            <nav class="scrollspy-nav" data-am-scrollspynav="{offsetTop: 45}" data-am-sticky>
+                <ul>
+                    <li><a href="#about">概述</a></li>
+                    <li><a href="#team">类似推荐</a></li>
+                    <li><a href="#ep">评论</a></li>
+                </ul>
+            </nav>
+
+            <div class="am-panel am-panel-default" id="about">
+                <div class="am-panel-hd">概述</div>
+                <div class="am-panel-bd">
+                    <p>
+                        棉花糖[katncandix2]，2007年5月30日街头出身，为两人团体，由团长沈圣哲(圣哲)以及主唱庄鹃瑛(小球)所组成。之所以是街头出身，始于一开始棉花糖[katncandix2]为台北市文化局核准街头艺人，从街头开始演出，往他们的音乐梦想勇敢飞行!!!。棉花糖藉由无数次的演出，一起在烈日下、狂风中、还有那没完没了的雨天里。和所有人一创造热血青春。棉花糖用年轻的眼睛看着现实世界，音乐充满温暖、力量和希望，他们用努力作为实现梦想的强心针，用音乐开创梦想的大世纪，这是属于棉花糖的记忆、一段记录
+                        勇敢的故事。清新的城市民谣，软绵绵却有着温暖的力量，在喧嚣吵杂的城市里，还有一个温暖组合，直接将力量打在你的心脏!“棉花糖katncandix2”，街头艺人。在好天气或坏天气里快乐唱歌，在马路边、小公园或是热闹的柏油路面上，实践音乐的梦想.曾经在台湾,大陆进行数千次的街头演唱，感动了无数青年的心.触动了无数人内心的感伤和爱情观2008年1月11日，发行首张创作EP
+                        2375。2009年5月1日发行首张创作专辑「小飞行」。 2010年5月14日发行第二张创作专辑「再见王子」。
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="am-panel am-panel-default" id="team">
+                <div class="am-panel-hd">类似推荐</div>
+                <div class="am-panel-bd">
+                    <p>主唱：小球主要为棉花糖[katncandix2]的歌词创作人.叫小球原因是因为小球以前喜欢穿宽宽的衣裤,风大时跑起来像球.因为小球比较怕冷，容易感冒 所以平时都会加个围巾.</p>
+                    <p>团长：圣哲主要为棉花糖[katncandix2]的制作人以及曲创作人，平时演出时以木吉他为主要乐器,大家可以叫他老板哦~</p>
+                </div>
+            </div>
+
+            <div class="am-panel am-panel-default" id="ep">
+                <div class="am-panel-hd">评论</div>
+                <div class="am-panel-bd">
+                    <ul class="am-comments-list am-comments-list-flip">
+                      <li class="am-comment">
+                        <article class="am-comment">
+                        <a href="#link-to-user-home">
+                            <img src="" alt="" class="am-comment-avatar" width="48" height="48"/>
+                        </a>
+
+                        <div class="am-comment-main">
+                            <header class="am-comment-hd">
+                                <!--<h3 class="am-comment-title">评论标题</h3>-->
+                                <div class="am-comment-meta">
+                                    <a href="#link-to-user" class="am-comment-author">某人</a>
+                                    评论于
+                                    <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">
+                                        2014-7-12 15:30
+                                    </time>
+                                </div>
+                            </header>
+
+                            <div class="am-comment-bd">
+                                ...
+                            </div>
+                        </div>
+                    </article>
+                      </li>
+
+                      <li class="am-comment">
+                        <article class="am-comment">
+                        <a href="#link-to-user-home">
+                            <img src="" alt="" class="am-comment-avatar" width="48" height="48"/>
+                        </a>
+
+                        <div class="am-comment-main">
+                            <header class="am-comment-hd">
+                                <!--<h3 class="am-comment-title">评论标题</h3>-->
+                                <div class="am-comment-meta">
+                                    <a href="#link-to-user" class="am-comment-author">某人</a>
+                                    评论于
+                                    <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">
+                                        2014-7-12 15:30
+                                    </time>
+                                </div>
+                            </header>
+
+                            <div class="am-comment-bd">
+                                ...
+                            </div>
+                        </div>
+                    </article>
+                      </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

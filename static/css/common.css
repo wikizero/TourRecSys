@@ -1,0 +1,81 @@
+<<<<<<< HEAD
+html, body{
+    width: 100%;
+    background: #FFFFFF;
+=======
+*{
+>>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
+    margin: 0;
+    padding: 0;
+}
+
+<<<<<<< HEAD
+=======
+html, body{
+    width: 100%;
+    background: #f5f6f7;
+}
+
+>>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
+#top
+{
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
+}
+
+#head_login{
+    width: 1200px;
+    height: 30px;
+    margin: 0 auto;
+}
+
+#box_login{
+    height: 30px;
+    margin: 0;
+}
+
+#box_login li{
+    float: left;
+    display: inline-block;
+    margin: 0 5px;
+    line-height: 30px;
+}
+
+#logo{
+    line-height: 30px;
+}
+
+#nav{
+    height: 50px;
+    background: #4C5A65;
+}
+
+#nav nav{
+    width: 1200px;
+    height: 50px;
+    background: #4C5A65;
+    margin: 0 auto;
+}
+
+#nav ul li a{
+    height: 50px;
+    line-height: 50px;
+    color: #FFFFFF;
+    font-family: 'PingFang SC','Microsoft YaHei',SimHei,Arial,SimSun;
+}
+
+#nav ul li:hover{
+    background: #008CD6;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.font{
+    font-family: 'PingFang SC','Microsoft YaHei',SimHei,Arial,SimSun;
+}
