@@ -1,22 +1,10 @@
-<<<<<<< HEAD
 html, body{
     width: 100%;
     background: #FFFFFF;
-=======
-*{
->>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
     margin: 0;
     padding: 0;
 }
 
-<<<<<<< HEAD
-=======
-html, body{
-    width: 100%;
-    background: #f5f6f7;
-}
-
->>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
 #top
 {
     background: #FFFFFF;

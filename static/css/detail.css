@@ -66,3 +66,30 @@
 #detail_other{
     margin-top: 50px;
 }
+
+#comment_content{
+    width: 94.5%;
+    border: 1px solid #d0d0d0;
+    height: 28px;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.btn-redborder {
+    height: 32px;
+    border-radius: 4px;
+    min-width: 90px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #e41d1d;
+    border: 1px solid #e41d1d;
+    background: #fff;
+}
+
+#submit_btn{
+    border: 1px solid #ca0c16;
+    color: #ca0c16;
+    margin-left: 86.8%;
+}
