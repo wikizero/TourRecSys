@@ -18,4 +18,12 @@ $(function () {
         }
     });
 
+    $(".city_name").mouseenter(function () {
+        $(this).find("span").css("display", "none")
+    });
+
+    $(".city_name").mouseleave(function () {
+        $(this).find("span").css("display", "block")
+    });
+
 });

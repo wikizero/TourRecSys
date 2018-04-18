@@ -32,6 +32,7 @@
 .big_img{
     width: 468px;
     height: 412px;
+    background-size: 468px 412px !important;
 }
 
 .small_img{
@@ -168,4 +169,15 @@
     outline: 0;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
+}
+
+.span_city_name{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 18px;
+    color: #fff;
 }

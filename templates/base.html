@@ -16,15 +16,15 @@
 <body>
 <div id="top">
     <div id="head_login" class="font">
-{#        <div id="logo" class="left">旅游推荐系统</div>#}
+        {#        <div id="logo" class="left">旅游推荐系统</div>#}
         <div class="right">
             <ul id="box_login">
                 {% if user.is_authenticated %}
-                <li>{{ user.username }}</li>
+                    <li>{{ user.username }}</li>
                 {% else %}
-                <li><a href="/login">登陆</a></li>
-                <li>|</li>
-                <li><a href="/register">注册</a></li>
+                    <li><a href="/login">登陆</a></li>
+                    <li>|</li>
+                    <li><a href="/register">注册</a></li>
                 {% endif %}
             </ul>
         </div>
@@ -40,5 +40,13 @@
 </div>
 {% block content %}
 {% endblock %}
+<div style="width: 1200px; margin: 0 auto; text-align: center;">
+    <hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
+    <div class="copyright">
+        <p>
+            Copyright © 2018 xxx.com All Rights Reserved.
+        </p>
+    </div>
+</div>
 </body>
 </html>
