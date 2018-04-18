@@ -19,9 +19,13 @@
 {#        <div id="logo" class="left">旅游推荐系统</div>#}
         <div class="right">
             <ul id="box_login">
-                <li>登陆</li>
+                {% if user.is_authenticated %}
+                <li>{{ user.username }}</li>
+                {% else %}
+                <li><a href="/login">登陆</a></li>
                 <li>|</li>
-                <li>注册</li>
+                <li><a href="/register">注册</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

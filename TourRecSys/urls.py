@@ -1,4 +1,4 @@
-#coding:utf-8
+# coding:utf-8
 """TourRecSys URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -16,15 +16,19 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-
-from TourRecSys import view
+from tour import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    #首页
-    url(r'^$', view.init),
+    # 首页
+    url(r'^$', views.init),
 
-    #详情
-    url(r'^detail', view.detail),
+    # 详情
+    url(r'^detail', views.detail),
+
+    # login & register & logout
+    url(r'^login', views.sign_in),
+    url(r'^register', views.register),
+    url(r'^logout', views.sign_out),
 ]

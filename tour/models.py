@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -19,3 +19,15 @@ class View(models.Model):
     def __unicode__(self):
         return self.province + '-' + self.city + '-' + self.view_name
 
+
+class ExtUser(models.Model):
+    user = models.OneToOneField(User)
+    number = models.IntegerField(primary_key=True)
+    sex = models.CharField(max_length=2, blank=True, null=True)
+    autograph = models.CharField(max_length=50, blank=True, null=True)
+    greet = models.CharField(max_length=50, blank=True, null=True)
+    labels = models.CharField(max_length=50, blank=True, null=True)
+    register_date = models.DateField(auto_now=True)
+
+    def __unicode__(self):
+        return self.user.username

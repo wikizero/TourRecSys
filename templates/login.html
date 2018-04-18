@@ -1,0 +1,69 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'css/uikit.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/uikit.gradient.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/components/form-password.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/components/notify.gradient.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/components/form-file.almost-flat.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+    <script src="{% static 'js/uikit.min.js' %}"></script>
+    <script src="{% static 'js/components/form-password.js' %}"></script>
+    <script src="{% static 'js/components/notify.min.js' %}"></script>
+    <script src="{% static 'js/login-register.js' %}"></script>
+    <title>登录</title>
+</head>
+<script>
+    $(function () {
+        function getFileName(o){
+            var pos = o.lastIndexOf('\\')
+            return o.substring(pos+1)
+        }
+        $('.files').change(function () {
+            file = $(this).val()
+            name = getFileName(file)
+            ex_name = name.substring(name.lastIndexOf('.')+1, name.lenght)
+            if (ex_name != 'jpg' &&  ex_name != 'png' && ex_name != 'jpeg'){
+                alert('头像就他丫是张图片，你别他么反人类好不！！！')
+                return false
+            }
+           $('.uk-form').submit()
+        })
+
+
+    })
+
+
+</script>
+<body>
+{{ user.username }}
+<form class="uk-form" enctype="multipart/form-data" style="width: 500px; margin: 200px auto" method="post"
+      action="/login">
+    {% csrf_token %}
+    <p style="text-align: center; font-size: 23px;">电影推荐系统</p>
+    <div class="uk-form-row">
+        <label class="uk-form-label" data-for="form-s-it">用户名</label>
+        <div class="uk-form-controls">
+            <input id="username" name="username" placeholder="请输入账户名..." type="text" class="uk-form-width-large">
+        </div>
+    </div>
+    <div class="uk-form-row" style="margin-bottom: 20px">
+        <label class="uk-form-label" data-for="form-s-ip">密码</label>
+        <br>
+        <div class="uk-form-controls uk-form-password">
+            <input id="pw" name="pw" placeholder="请输入账户密码..." type="password" class="uk-form-width-large">
+            <a href="" class="uk-form-password-toggle" data-uk-form-password>Show</a>
+        </div>
+    </div>
+
+    <a class="uk-button submit-login" style="float: right">登录 <i class="uk-icon-arrow-right"></i> </a>
+    <a href="/register" style="text-decoration: none">注册账号 <i class="uk-icon-reply-all"></i> </a>
+    <a class="uk-button reset-btn" style="float: right;margin-right: 25px">清空 <i class="uk-icon-undo"></i> </a>
+
+
+</form>
+
+</body>
+</html>
