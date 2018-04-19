@@ -72,3 +72,13 @@ html, body{
 .nav-link:hover {
     text-decoration: none;
 }
+
+.cusClearFix:after{
+	clear:both;
+	display:block;
+	visibility:hidden;
+	height:0;
+	line-height:0;
+	content:"";
+ }
+.cusClearFix{zoom:1;} /*解决IE6 7兼容*/

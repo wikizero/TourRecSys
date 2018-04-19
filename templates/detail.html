@@ -11,6 +11,7 @@
 <script src="{% static 'js/amazeui.min.js' %}"></script>
 <script src="{% static 'js/components/slider.min.js' %}"></script>
 <script src="{% static 'js/components/notify.min.js' %}"></script>
+<script src="{% static 'lib/jquery.raty.min.js' %}"></script>
 
 <script>
 $(function(){
@@ -86,13 +87,29 @@ $(function(){
                         {{ view.view_desc|truncatechars:45 }}
                     </div>
 
-                </li>
-            </ul>
-        </div>
-        <div id="detail_slider_describe">
-            <span class="am-icon-heart"> 喜欢</span>
-            <span class="am-icon-heart-o"> 不喜欢</span>
-        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="detail_slider_describe">
+                {#                <span class="am-icon-heart"> 喜欢</span>#}
+                {#                <span class="am-icon-heart-o"> 不喜欢</span>#}
+                <div style="max-height: 415px">
+                    <h1 class="tit">南宁</h1>
+                    <div class="countbox">
+                        <div class="c_item">半城绿树半城楼，何处不逢老友粉，英雄牙倒酸嘢摊。只有到了南宁才会真切感受到这个城市的可爱之处。</div>
+                        <div class="c_item">建议游玩：<span class="sum">3</span>天。</div>
+                        <div class="c_item">无论你在何时到南宁，满满的绿意都会将你拥在清新的怀里。如果最佳季节满分100，每个季节都是85分左右吧。</div>
+                    </div>
+                </div>
+                <div id="comment_box" class="cusClearFix">
+                    <strong class="rating_num left" property="v:average">7.3</strong>
+                    <div class="left">
+                        <div id="star"></div>
+                        <span id="comment_num">87180个人评价</span>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
         <div class="clear"></div>
     </div>
 
@@ -113,7 +130,6 @@ $(function(){
                 </p>
             </div>
         </div>
-
 
         <div class="am-panel am-panel-default" id="team">
             <div class="am-panel-hd">类似推荐</div>
@@ -151,16 +167,19 @@ $(function(){
                 <form action="" method="post" id="commentform">
                         <textarea class="comment_content" name="comment_content" id="comment_content"
                                   placeholder="写下你的评论…" style="height: 84px;"></textarea>
-                    <div class="bot_bar clearfix" style="opacity: 1;">
-                        <div id="ubbtools" class="add_code">
-                            <a href="#insertcode" code="code" target="_self"><i
-                                    class="icon iconfont icon-daima"></i></a>
+                        <div class="bot_bar clearfix" style="opacity: 1;">
+                            <div id="ubbtools" class="add_code">
+                                <a href="#insertcode" code="code" target="_self"><i
+                                        class="icon iconfont icon-daima"></i></a>
+                            </div>
+                            <div>
+                                <div class="left">评价：
+                                    <div id="star1" style="display: inline-block;"></div>
+                                </div>
+                                <input id="submit_btn" type="submit" class="btn btn-redborder" value="发表评论">
+                                <div class="clear"></div>
+                            </div>
                         </div>
-                        <div>
-                            <input id="submit_btn" type="button" class="btn btn-redborder rigth" value="发表评论">
-                            <div class="clear"></div>
-                        </div>
-                    </div>
                 </form>
                 <ul class="am-comments-list am-comments-list-flip">
 
@@ -197,5 +216,13 @@ $(function(){
             </div>
         </div>
     </div>
-</div>
+
+
+    <script>
+        $('#star').raty({path: '{% static 'lib/img' %}', readOnly: true, score: 3})
+        $('#star1').raty({
+            path: '{% static 'lib/img' %}',
+            click: function(score, evt) { alert(score )}
+        })
+    </script>
 {% endblock content %}
