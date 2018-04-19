@@ -46,7 +46,9 @@
                                  style="transform: scale(1); opacity: 1;">
                                 <h1 class="uk-text-contrast">{{ hot.0.view_name }}</h1>
                                 <p class="uk-text-large">{{ hot.0.view_desc|truncatechars:28 }}</p>
+                                <a class="uk-position-cover" href="/detail?id={{ hot.0.id }}"></a>
                             </div>
+
                         </div>
                     </li>
                 </ul>
@@ -59,6 +61,7 @@
                                 <figcaption
                                         class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
                                     <p>{{ h.view_desc|truncatechars:28 }}</p>
+                                    <a class="uk-position-cover" href="/detail?id={{ h.id }}"></a>
                                 </figcaption>
                             </figure>
                         </li>
@@ -73,6 +76,7 @@
                                 <figcaption
                                         class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
                                     <p>{{ h.view_desc|truncatechars:28 }}</p>
+                                    <a class="uk-position-cover" href="/detail?id={{ h.id }}"></a>
                                 </figcaption>
                             </figure>
                         </li>
@@ -90,6 +94,7 @@
                                  src="{% static 'images/imgs/' %}{{ rand.0.id }}_4.png">
                             <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
                                 <p>{{ rand.0.view_desc|truncatechars:28 }}</p>
+                                <a class="uk-position-cover"  href="/detail?id={{ rand.0.id }}"></a>
                             </figcaption>
                         </figure>
                     </li>
@@ -102,6 +107,7 @@
                                      src="{% static 'images/imgs/' %}{{ r.id }}_1.png">
                                 <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
                                     <p>{{ r.view_desc|truncatechars:28 }}</p>
+                                    <a class="uk-position-cover" href="/detail?id={{ r.id }}"></a>
                                 </figcaption>
                             </figure>
                         </li>
@@ -114,6 +120,7 @@
                                  src="{% static 'images/imgs/' %}{{ rand.4.id }}_1.png">
                             <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
                                 <p>{{ rand.4.view_desc|truncatechars:28 }}</p>
+                                <a class="uk-position-cover"  href="/detail?id={{ rand.4.id }}"></a>
                             </figcaption>
                         </figure>
                     </li>
@@ -123,6 +130,7 @@
                                  src="{% static 'images/imgs/' %}{{ rand.5.id }}_1.png">
                             <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
                                 <p>{{ rand.5.view_desc|truncatechars:28 }}</p>
+                                <a class="uk-position-cover" href="/detail?id={{ rand.5.id }}"></a>
                             </figcaption>
                         </figure>
                     </li>
@@ -142,6 +150,7 @@
                                 <figcaption
                                         class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
                                     <p>{{ g.view_desc|truncatechars:28 }}</p>
+                                    <a class="uk-position-cover"  href="/detail?id={{ g.id }}"></a>
                                 </figcaption>
                             </figure>
                         </li>
@@ -156,6 +165,7 @@
                                 <figcaption
                                         class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
                                     <p>{{ g.view_desc|truncatechars:28 }}</p>
+                                    <a class="uk-position-cover" href="/detail?id={{ g.id }}"></a>
                                 </figcaption>
                             </figure>
                         </li>
