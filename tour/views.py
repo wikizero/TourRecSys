@@ -106,3 +106,7 @@ def register(request):
 def sign_out(request):
     logout(request)
     return redirect('/')
+
+
+def search(request):
+    return render(request, 'search.html')
