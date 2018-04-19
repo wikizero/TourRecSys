@@ -13,7 +13,7 @@
 {% block content %}
     <div id="detail_html">
         <ol class="am-breadcrumb">
-            <li><a href="#">首页</a></li>
+            <li><a href="/">首页</a></li>
             <li class="am-active">详情</li>
         </ol>
 
@@ -22,34 +22,34 @@
                  data-am-slider='{"controlNav":false}'>
                 <ul class="am-slides">
                     <li>
-                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg">
+                        <img src="{% static 'images/imgs/' %}{{ view.id }}_1.png">
                         <div class="am-slider-desc">
                             <div class="am-slider-counter"><span class="am-active">1</span>/4</div>
-                            远方 有一个地方 那里种有我们的梦想
+                            {{ view.view_desc|truncatechars:28 }}
                         </div>
 
                     </li>
                     <li>
-                        <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg">
+                        <img src="{% static 'images/imgs/' %}{{ view.id }}_2.png">
                         <div class="am-slider-desc">
                             <div class="am-slider-counter"><span class="am-active">2</span>/4</div>
-                            某天 也许会相遇 相遇在这个好地方
+                            {{ view.view_desc|truncatechars:28 }}
                         </div>
 
                     </li>
                     <li>
-                        <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg">
+                        <img src="{% static 'images/imgs/' %}{{ view.id }}_3.png">
                         <div class="am-slider-desc">
                             <div class="am-slider-counter"><span class="am-active">3</span>/4</div>
-                            不要太担心 只因为我相信 终会走过这条遥远的道路
+                            {{ view.view_desc|truncatechars:28 }}
                         </div>
 
                     </li>
                     <li>
-                        <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg">
+                        <img src="{% static 'images/imgs/' %}{{ view.id }}_4.png">
                         <div class="am-slider-desc">
                             <div class="am-slider-counter"><span class="am-active">4</span>/4</div>
-                            OH PARA PARADISE 是否那么重要 你是否那么地遥远
+                            {{ view.view_desc|truncatechars:28 }}
                         </div>
 
                     </li>
@@ -75,9 +75,7 @@
                 <div class="am-panel-hd">概述</div>
                 <div class="am-panel-bd">
                     <p>
-                        棉花糖[katncandix2]，2007年5月30日街头出身，为两人团体，由团长沈圣哲(圣哲)以及主唱庄鹃瑛(小球)所组成。之所以是街头出身，始于一开始棉花糖[katncandix2]为台北市文化局核准街头艺人，从街头开始演出，往他们的音乐梦想勇敢飞行!!!。棉花糖藉由无数次的演出，一起在烈日下、狂风中、还有那没完没了的雨天里。和所有人一创造热血青春。棉花糖用年轻的眼睛看着现实世界，音乐充满温暖、力量和希望，他们用努力作为实现梦想的强心针，用音乐开创梦想的大世纪，这是属于棉花糖的记忆、一段记录
-                        勇敢的故事。清新的城市民谣，软绵绵却有着温暖的力量，在喧嚣吵杂的城市里，还有一个温暖组合，直接将力量打在你的心脏!“棉花糖katncandix2”，街头艺人。在好天气或坏天气里快乐唱歌，在马路边、小公园或是热闹的柏油路面上，实践音乐的梦想.曾经在台湾,大陆进行数千次的街头演唱，感动了无数青年的心.触动了无数人内心的感伤和爱情观2008年1月11日，发行首张创作EP
-                        2375。2009年5月1日发行首张创作专辑「小飞行」。 2010年5月14日发行第二张创作专辑「再见王子」。
+                        {{ view.view_desc }}
                     </p>
                 </div>
             </div>
@@ -90,57 +88,15 @@
                         <div class="uk-slider-container">
                             <ul class="uk-slider uk-grid-width-medium-1-4"
                                 style="min-width: 2468.25px; min-height: 137px; transform: translateX(-103px);">
+
+                                {% for g in sim %}
                                 <li class="uk-slide-before" style="left: 0px; width: 205.688px;"><img
-                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzYwMHg0MDAvc2t5L2F1dG8vdGV4dDoxL3NpemU6MTAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi41LjIuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcy8+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwRDhGREIiLz48Zz48dGV4dCB4PSIyNjMiIHk9IjI0NS45IiBzdHlsZT0iZmlsbDojRkZGRkZGO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwMHB0Ij4xPC90ZXh0PjwvZz48L3N2Zz4="
+                                        src="{% static 'images/imgs/' %}{{ g.id }}_1.png"
                                         width="600" height="400" alt="1 [600x400]" draggable="false"
                                         data-src="holder.js/600x400/sky/auto/text:1/size:100"
                                         data-holder-rendered="true"></li>
-                                <li class="uk-slide-before" style="left: 205.688px; width: 205.688px;"><img
-                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzYwMHg0MDAvdmluZS9hdXRvL3RleHQ6Mi9zaXplOjEwMApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNS4yLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnMvPjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjMzlEQkFDIi8+PGc+PHRleHQgeD0iMjYzIiB5PSIyNDUuOSIgc3R5bGU9ImZpbGw6IzFFMjkyQztmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMDBwdCI+MjwvdGV4dD48L2c+PC9zdmc+"
-                                        width="600" height="400" alt="2 [600x400]" draggable="false"
-                                        data-src="holder.js/600x400/vine/auto/text:2/size:100"
-                                        data-holder-rendered="true"></li>
-                                <li class="uk-active" style="left: 411.375px; width: 205.688px;"><img
-                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzYwMHg0MDAvbGF2YS9hdXRvL3RleHQ6My9zaXplOjEwMApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNS4yLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnMvPjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjg1OTFBIi8+PGc+PHRleHQgeD0iMjYzIiB5PSIyNDUuOSIgc3R5bGU9ImZpbGw6IzFDMjg0Njtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMDBwdCI+MzwvdGV4dD48L2c+PC9zdmc+"
-                                        width="600" height="400" alt="3 [600x400]" draggable="false"
-                                        data-src="holder.js/600x400/lava/auto/text:3/size:100"
-                                        data-holder-rendered="true"></li>
+                                {% endfor %}
 
-                                <li class="uk-slide-after" style="left: 1028.44px; width: 205.688px;"><img
-                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzYwMHg0MDAvbGF2YS9hdXRvL3RleHQ6Ni9zaXplOjEwMApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNS4yLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnMvPjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjg1OTFBIi8+PGc+PHRleHQgeD0iMjYzIiB5PSIyNDUuOSIgc3R5bGU9ImZpbGw6IzFDMjg0Njtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMDBwdCI+NjwvdGV4dD48L2c+PC9zdmc+"
-                                        width="600" height="400" alt="6 [600x400]" draggable="false"
-                                        data-src="holder.js/600x400/lava/auto/text:6/size:100"
-                                        data-holder-rendered="true"></li>
-                                <li class="uk-slide-after" style="left: 1234.13px; width: 205.688px;"><img
-                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzYwMHg0MDAvc2t5L2F1dG8vdGV4dDo3L3NpemU6MTAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi41LjIuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcy8+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwRDhGREIiLz48Zz48dGV4dCB4PSIyNjMiIHk9IjI0NS45IiBzdHlsZT0iZmlsbDojRkZGRkZGO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwMHB0Ij43PC90ZXh0PjwvZz48L3N2Zz4="
-                                        width="600" height="400" alt="7 [600x400]" draggable="false"
-                                        data-src="holder.js/600x400/sky/auto/text:7/size:100"
-                                        data-holder-rendered="true"></li>
-                                <li class="uk-slide-after" style="left: 1439.81px; width: 205.688px;"><img
-                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzYwMHg0MDAvdmluZS9hdXRvL3RleHQ6OC9zaXplOjEwMApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNS4yLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnMvPjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjMzlEQkFDIi8+PGc+PHRleHQgeD0iMjYzIiB5PSIyNDUuOSIgc3R5bGU9ImZpbGw6IzFFMjkyQztmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMDBwdCI+ODwvdGV4dD48L2c+PC9zdmc+"
-                                        width="600" height="400" alt="8 [600x400]" draggable="false"
-                                        data-src="holder.js/600x400/vine/auto/text:8/size:100"
-                                        data-holder-rendered="true"></li>
-                                <li class="uk-slide-before" style="left: -822.75px; width: 205.688px;"><img
-                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzYwMHg0MDAvbGF2YS9hdXRvL3RleHQ6OS9zaXplOjEwMApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNS4yLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnMvPjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjg1OTFBIi8+PGc+PHRleHQgeD0iMjYzIiB5PSIyNDUuOSIgc3R5bGU9ImZpbGw6IzFDMjg0Njtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMDBwdCI+OTwvdGV4dD48L2c+PC9zdmc+"
-                                        width="600" height="400" alt="9 [600x400]" draggable="false"
-                                        data-src="holder.js/600x400/lava/auto/text:9/size:100"
-                                        data-holder-rendered="true"></li>
-                                <li class="uk-slide-before" style="left: -617.063px; width: 205.688px;"><img
-                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzYwMHg0MDAvc2t5L2F1dG8vdGV4dDoxMC9zaXplOjEwMApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNS4yLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnMvPjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjMEQ4RkRCIi8+PGc+PHRleHQgeD0iMjI2IiB5PSIyNDUuOSIgc3R5bGU9ImZpbGw6I0ZGRkZGRjtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMDBwdCI+MTA8L3RleHQ+PC9nPjwvc3ZnPg=="
-                                        width="600" height="400" alt="10 [600x400]" draggable="false"
-                                        data-src="holder.js/600x400/sky/auto/text:10/size:100"
-                                        data-holder-rendered="true"></li>
-                                <li class="uk-slide-before" style="left: -411.375px; width: 205.688px;"><img
-                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzYwMHg0MDAvdmluZS9hdXRvL3RleHQ6MTEvc2l6ZToxMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjUuMi4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzLz48cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0iIzM5REJBQyIvPjxnPjx0ZXh0IHg9IjIyOS42Nzk2ODc1IiB5PSIyNDUuOSIgc3R5bGU9ImZpbGw6IzFFMjkyQztmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMDBwdCI+MTE8L3RleHQ+PC9nPjwvc3ZnPg=="
-                                        width="600" height="400" alt="11 [600x400]" draggable="false"
-                                        data-src="holder.js/600x400/vine/auto/text:11/size:100"
-                                        data-holder-rendered="true"></li>
-                                <li class="uk-slide-before" style="left: -205.688px; width: 205.688px;"><img
-                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzYwMHg0MDAvbGF2YS9hdXRvL3RleHQ6MTIvc2l6ZToxMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjUuMi4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzLz48cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0iI0Y4NTkxQSIvPjxnPjx0ZXh0IHg9IjIyNiIgeT0iMjQ1LjkiIHN0eWxlPSJmaWxsOiMxQzI4NDY7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTAwcHQiPjEyPC90ZXh0PjwvZz48L3N2Zz4="
-                                        width="600" height="400" alt="12 [600x400]" draggable="false"
-                                        data-src="holder.js/600x400/lava/auto/text:12/size:100"
-                                        data-holder-rendered="true"></li>
                             </ul>
                         </div>
                         <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous"

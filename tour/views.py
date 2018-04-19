@@ -30,7 +30,13 @@ def init(request):
 
 
 def detail(request):
-    return render(request, 'detail.html')
+    if request.method == 'GET':
+        view_id = request.GET.get('id', False)
+        view = View.objects.filter(id=view_id).first()
+
+        # 类似推荐
+        sim = View.objects.filter(city__in=[u'桂林', u'南宁'])
+        return render(request, 'detail.html', {'view': view, 'sim':sim})
 
 
 @csrf_exempt
