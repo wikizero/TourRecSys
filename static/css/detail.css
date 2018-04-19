@@ -16,7 +16,12 @@
 
 #detail_slider{
     width:900px;
+    height: 520px;
     float: left;
+}
+
+#detail_slider img{
+    height: 520px;
 }
 
 #detail_slider_describe{

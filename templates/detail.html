@@ -84,17 +84,21 @@
             <div class="am-panel am-panel-default" id="team">
                 <div class="am-panel-hd">类似推荐</div>
                 <div class="am-panel-bd">
-                    <div class="uk-slidenav-position" data-uk-slider="{center:true}">
+                    <div class="uk-slidenav-position" data-uk-slider="{center:true, autoplay:true, autoplayInterval: 5000}">
                         <div class="uk-slider-container">
                             <ul class="uk-slider uk-grid-width-medium-1-4"
                                 style="min-width: 2468.25px; min-height: 137px; transform: translateX(-103px);">
-
                                 {% for g in sim %}
-                                <li class="uk-slide-before" style="left: 0px; width: 205.688px;"><img
-                                        src="{% static 'images/imgs/' %}{{ g.id }}_1.png"
-                                        width="600" height="400" alt="1 [600x400]" draggable="false"
-                                        data-src="holder.js/600x400/sky/auto/text:1/size:100"
-                                        data-holder-rendered="true"></li>
+                                <li class="uk-slide-before" style="left: 0px; width: 205.688px;">
+                                    <figure class="uk-overlay uk-overlay-hover">
+                                        <img src="{% static 'images/imgs/' %}{{ g.id }}_1.png">
+                                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background">
+                                            <h3>Anchor</h3>
+                                            <p>Lorem ipsum dolor sit amet.</p>
+                                        </div>
+                                        <a class="uk-position-cover" href="#"></a>
+                                    </figure>
+                                </li>
                                 {% endfor %}
 
                             </ul>
