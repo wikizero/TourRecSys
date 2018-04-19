@@ -12,6 +12,7 @@
     width: 1200px;
     margin: 0 auto 0;
     background: #FAFAFA;
+    position: relative;
 }
 
 #detail_slider{
@@ -96,5 +97,32 @@
 #submit_btn{
     border: 1px solid #ca0c16;
     color: #ca0c16;
-    margin-left: 86.8%;
+    margin-right: 5.5%;
+    float: right;
+}
+
+#detail_slider_describe .rating_num {
+    color: #494949;
+    padding: 0 10px 0 0;
+    min-width: 22%;
+    font-size: 35px;
+}
+
+#comment_num{
+    font-size: 13px;
+}
+
+.tit{
+    line-height: 45px;
+    font-family: "microsoft yahei";
+    font-size: 40px;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#comment_box{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
 }
