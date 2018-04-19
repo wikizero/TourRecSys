@@ -72,6 +72,3 @@ html, body{
 .nav-link:hover {
     text-decoration: none;
 }
-.guess-like li{
-    padding:0 16px 0 0 !important;
-}

@@ -187,3 +187,16 @@
     font-family: "Microsoft YaHei";
     color: #FF8C69;
 }
+
+.guess-like li{
+    padding:0 18px 0 0 !important;
+}
+
+.guess-like li:last-child {
+    padding: 0 !important;
+}
+
+.ui_width{
+    width: 100%;
+}
+
