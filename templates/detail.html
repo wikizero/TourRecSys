@@ -2,187 +2,200 @@
 {% load staticfiles %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'css/amazeui.min.css' %}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="{% static 'css/detail.css' %}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="{% static 'css/components/slider.min.css' %}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="{% static 'css/components/slidenav.min.css' %}" rel="stylesheet" type="text/css"/>
-    <script src="{% static 'js/amazeui.min.js' %}"></script>
-    <script src="{% static 'js/components/slider.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/amazeui.min.css' %}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{% static 'css/detail.css' %}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{% static 'css/components/slider.min.css' %}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{% static 'css/components/slidenav.min.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/components/notify.gradient.min.css' %}" rel="stylesheet" type="text/css">
+
+<script src="{% static 'js/amazeui.min.js' %}"></script>
+<script src="{% static 'js/components/slider.min.js' %}"></script>
+<script src="{% static 'js/components/notify.min.js' %}"></script>
+
+<script>
+$(function(){
+            $('.comment_content').val('')
+           // 提交评论表单
+            $('#submit_btn').click(function () {
+                comment = $('.comment_content').val()
+                if (comment == ''){
+                    UIkit.notify('好歹输入点东西嘛，请先输入评论内容再提交！', {status:'danger', timeout : 1500});
+                    return false
+                }
+                $.ajax({
+                    type:'post',
+                    url:'/detail',
+                    data:{
+                        'text': comment,
+                        'id': '{{ view.id }}'
+                    },
+                    success: function(msg){
+                        UIkit.notify(msg.msg, {status: msg.type, timeout: 1500});
+                        if (msg.type == 'success'){
+                            setTimeout(function(){
+                                location.reload()
+                            }, 1500)
+                        }
+                    }
+                })
+            })
+})
+
+</script>
 {% endblock %}
 
 {% block content %}
-    <div id="detail_html">
-        <ol class="am-breadcrumb">
-            <li><a href="/">首页</a></li>
-            <li class="am-active">详情</li>
-        </ol>
+<div id="detail_html">
+    <ol class="am-breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="am-active">详情</li>
+    </ol>
 
-        <div id="detail_content">
-            <div id="detail_slider" data-am-widget="slider" class="am-slider am-slider-c3"
-                 data-am-slider='{"controlNav":false}'>
-                <ul class="am-slides">
-                    <li>
-                        <img src="{% static 'images/imgs/' %}{{ view.id }}_1.png">
-                        <div class="am-slider-desc">
-                            <div class="am-slider-counter"><span class="am-active">1</span>/4</div>
-                            {{ view.view_desc|truncatechars:28 }}
-                        </div>
+    <div id="detail_content">
+        <div id="detail_slider" data-am-widget="slider" class="am-slider am-slider-c3"
+             data-am-slider='{"controlNav":false}'>
+            <ul class="am-slides">
+                <li>
+                    <img src="{% static 'images/imgs/' %}{{ view.id }}_1.png">
+                    <div class="am-slider-desc">
+                        <div class="am-slider-counter"><span class="am-active">1</span>/4</div>
+                        {{ view.view_desc|truncatechars:45 }}
+                    </div>
 
-                    </li>
-                    <li>
-                        <img src="{% static 'images/imgs/' %}{{ view.id }}_2.png">
-                        <div class="am-slider-desc">
-                            <div class="am-slider-counter"><span class="am-active">2</span>/4</div>
-                            {{ view.view_desc|truncatechars:28 }}
-                        </div>
+                </li>
+                <li>
+                    <img src="{% static 'images/imgs/' %}{{ view.id }}_2.png">
+                    <div class="am-slider-desc">
+                        <div class="am-slider-counter"><span class="am-active">2</span>/4</div>
+                        {{ view.view_desc|truncatechars:45 }}
+                    </div>
 
-                    </li>
-                    <li>
-                        <img src="{% static 'images/imgs/' %}{{ view.id }}_3.png">
-                        <div class="am-slider-desc">
-                            <div class="am-slider-counter"><span class="am-active">3</span>/4</div>
-                            {{ view.view_desc|truncatechars:28 }}
-                        </div>
+                </li>
+                <li>
+                    <img src="{% static 'images/imgs/' %}{{ view.id }}_3.png">
+                    <div class="am-slider-desc">
+                        <div class="am-slider-counter"><span class="am-active">3</span>/4</div>
+                        {{ view.view_desc|truncatechars:45 }}
+                    </div>
 
-                    </li>
-                    <li>
-                        <img src="{% static 'images/imgs/' %}{{ view.id }}_4.png">
-                        <div class="am-slider-desc">
-                            <div class="am-slider-counter"><span class="am-active">4</span>/4</div>
-                            {{ view.view_desc|truncatechars:28 }}
-                        </div>
+                </li>
+                <li>
+                    <img src="{% static 'images/imgs/' %}{{ view.id }}_4.png">
+                    <div class="am-slider-desc">
+                        <div class="am-slider-counter"><span class="am-active">4</span>/4</div>
+                        {{ view.view_desc|truncatechars:45 }}
+                    </div>
 
-                    </li>
-                </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="detail_slider_describe">
+            <span class="am-icon-heart"> 喜欢</span>
+            <span class="am-icon-heart-o"> 不喜欢</span>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="detail_other">
+        <nav class="scrollspy-nav" data-am-scrollspynav="{offsetTop: 45}" data-am-sticky>
+            <ul>
+                <li><a href="#about">概述</a></li>
+                <li><a href="#team">类似推荐</a></li>
+                <li><a href="#ep">评论</a></li>
+            </ul>
+        </nav>
+
+        <div class="am-panel am-panel-default" id="about">
+            <div class="am-panel-hd">概述</div>
+            <div class="am-panel-bd">
+                <p>
+                    {{ view.view_desc }}
+                </p>
             </div>
-            <div id="detail_slider_describe">
-                <span class="am-icon-heart"> 喜欢</span>
-                <span class="am-icon-heart-o"> 不喜欢</span>
-            </div>
-            <div class="clear"></div>
         </div>
 
-        <div id="detail_other">
-            <nav class="scrollspy-nav" data-am-scrollspynav="{offsetTop: 45}" data-am-sticky>
-                <ul>
-                    <li><a href="#about">概述</a></li>
-                    <li><a href="#team">类似推荐</a></li>
-                    <li><a href="#ep">评论</a></li>
-                </ul>
-            </nav>
 
-            <div class="am-panel am-panel-default" id="about">
-                <div class="am-panel-hd">概述</div>
-                <div class="am-panel-bd">
-                    <p>
-                        {{ view.view_desc }}
-                    </p>
-                </div>
-            </div>
+        <div class="am-panel am-panel-default" id="team">
+            <div class="am-panel-hd">类似推荐</div>
+            <div class="am-panel-bd">
+                <div class="uk-slidenav-position" data-uk-slider="{center:true, autoplay:true, autoplayInterval: 5000}">
+                    <div class="uk-slider-container">
+                        <ul class="uk-slider uk-grid-width-medium-1-4"
+                            style="min-width: 2468.25px; min-height: 137px; transform: translateX(-103px);">
+                            {% for g in sim %}
+                            <li class="uk-slide-before" style="left: 0px; width: 205.688px;">
+                                <figure class="uk-overlay uk-overlay-hover">
+                                    <img src="{% static 'images/imgs/' %}{{ g.id }}_1.png">
+                                    <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background">
+                                        <h3>{{ g.view_name }}</h3>
+                                        <p>{{ g.view_desc|truncatechars:55 }}</p>
+                                    </div>
+                                    <a class="uk-position-cover" href="/detail?id={{ g.id }}"></a>
+                                </figure>
+                            </li>
+                            {% endfor %}
 
-
-            <div class="am-panel am-panel-default" id="team">
-                <div class="am-panel-hd">类似推荐</div>
-                <div class="am-panel-bd">
-                    <div class="uk-slidenav-position" data-uk-slider="{center:true, autoplay:true, autoplayInterval: 5000}">
-                        <div class="uk-slider-container">
-                            <ul class="uk-slider uk-grid-width-medium-1-4"
-                                style="min-width: 2468.25px; min-height: 137px; transform: translateX(-103px);">
-                                {% for g in sim %}
-                                <li class="uk-slide-before" style="left: 0px; width: 205.688px;">
-                                    <figure class="uk-overlay uk-overlay-hover">
-                                        <img src="{% static 'images/imgs/' %}{{ g.id }}_1.png">
-                                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background">
-                                            <h3>Anchor</h3>
-                                            <p>Lorem ipsum dolor sit amet.</p>
-                                        </div>
-                                        <a class="uk-position-cover" href="#"></a>
-                                    </figure>
-                                </li>
-                                {% endfor %}
-
-                            </ul>
-                        </div>
-                        <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous"
-                           data-uk-slider-item="previous"></a>
-                        <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next"
-                           data-uk-slider-item="next"></a>
+                        </ul>
                     </div>
+                    <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous"
+                       data-uk-slider-item="previous"></a>
+                    <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next"
+                       data-uk-slider-item="next"></a>
                 </div>
             </div>
+        </div>
 
-            <div class="am-panel am-panel-default" id="ep">
-                <div class="am-panel-hd">评论</div>
-                <div class="am-panel-bd">
-                    <form action="" method="post" id="commentform">
+        <div class="am-panel am-panel-default" id="ep">
+            <div class="am-panel-hd">评论</div>
+            <div class="am-panel-bd">
+                <form action="" method="post" id="commentform">
                         <textarea class="comment_content" name="comment_content" id="comment_content"
                                   placeholder="写下你的评论…" style="height: 84px;"></textarea>
-                        <div class="bot_bar clearfix" style="opacity: 1;">
-                            <div id="ubbtools" class="add_code">
-                                <a href="#insertcode" code="code" target="_self"><i
-                                        class="icon iconfont icon-daima"></i></a>
-                            </div>
-                            <div>
-                                <input id="submit_btn" type="submit" class="btn btn-redborder rigth" value="发表评论">
-                                <div class="clear"></div>
-                            </div>
+                    <div class="bot_bar clearfix" style="opacity: 1;">
+                        <div id="ubbtools" class="add_code">
+                            <a href="#insertcode" code="code" target="_self"><i
+                                    class="icon iconfont icon-daima"></i></a>
                         </div>
-                    </form>
-                    <ul class="am-comments-list am-comments-list-flip">
-                        <li class="am-comment">
-                            <article class="am-comment">
-                                <a href="#link-to-user-home">
-                                    <img src="" alt="" class="am-comment-avatar" width="48" height="48"/>
-                                </a>
+                        <div>
+                            <input id="submit_btn" type="button" class="btn btn-redborder rigth" value="发表评论">
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </form>
+                <ul class="am-comments-list am-comments-list-flip">
 
-                                <div class="am-comment-main">
-                                    <header class="am-comment-hd">
-                                        <!--<h3 class="am-comment-title">评论标题</h3>-->
-                                        <div class="am-comment-meta">
-                                            <a href="#link-to-user" class="am-comment-author">某人</a>
-                                            评论于
-                                            <time datetime="2013-07-27T04:54:29-07:00"
-                                                  title="2013年7月27日 下午7:54 格林尼治标准时间+0800">
-                                                2014-7-12 15:30
-                                            </time>
-                                        </div>
-                                    </header>
+                    {% for c in comments %}
+                    <li class="am-comment">
+                        <article class="am-comment">
+                            <a href="#link-to-user-home">
+                                <img src="{% static 'images/photo.jpg' %}" alt="" class="am-comment-avatar" width="48"
+                                     height="48"/>
+                            </a>
 
-                                    <div class="am-comment-bd">
-                                        ...
+                            <div class="am-comment-main">
+                                <header class="am-comment-hd">
+                                    <!--<h3 class="am-comment-title">评论标题</h3>-->
+                                    <div class="am-comment-meta">
+                                        <a href="#link-to-user" class="am-comment-author">{{ c.user.username }}</a>
+                                        评论于
+                                        <time datetime=""
+                                              title="">
+                                            {{ c.comment_date|date:"Y-m-d H:i:s" }}
+                                        </time>
                                     </div>
+                                </header>
+
+                                <div class="am-comment-bd">
+                                    {{ c.comment }}
                                 </div>
-                            </article>
-                        </li>
+                            </div>
+                        </article>
+                    </li>
+                    {% endfor %}
 
-                        <li class="am-comment">
-                            <article class="am-comment">
-                                <a href="#link-to-user-home">
-                                    <img src="" alt="" class="am-comment-avatar" width="48" height="48"/>
-                                </a>
-
-                                <div class="am-comment-main">
-                                    <header class="am-comment-hd">
-                                        <!--<h3 class="am-comment-title">评论标题</h3>-->
-                                        <div class="am-comment-meta">
-                                            <a href="#link-to-user" class="am-comment-author">某人</a>
-                                            评论于
-                                            <time datetime="2013-07-27T04:54:29-07:00"
-                                                  title="2013年7月27日 下午7:54 格林尼治标准时间+0800">
-                                                2014-7-12 15:30
-                                            </time>
-                                        </div>
-                                    </header>
-
-                                    <div class="am-comment-bd">
-                                        ...
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                    </ul>
-                </div>
+                </ul>
             </div>
         </div>
     </div>
+</div>
 {% endblock content %}

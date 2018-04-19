@@ -29,6 +29,7 @@ def init(request):
         return render(request, 'index.html', data)
 
 
+@csrf_exempt
 def detail(request):
     if request.method == 'GET':
         view_id = request.GET.get('id', False)
@@ -36,7 +37,26 @@ def detail(request):
 
         # 类似推荐
         sim = View.objects.filter(city__in=[u'桂林', u'南宁'])
-        return render(request, 'detail.html', {'view': view, 'sim':sim})
+
+        comments = Comment.objects.filter(view=view).order_by('comment_date')[::-1]
+
+        return render(request, 'detail.html', {'view': view, 'sim':sim, 'comments':comments})
+
+    elif request.method == 'POST':
+        comment = request.POST.get('text', False)
+        view_id = request.POST.get('id', False)
+
+        view = View.objects.get(id=view_id)
+        msg = {
+            'msg': u'发生未知错误',
+            'type': 'danger'
+        }
+        if comment:
+            Comment.objects.create(user=request.user, view=view, comment=comment)
+            msg['msg'] = u'评论提交成功，页面即将刷新!'
+            msg['type'] = 'success'
+
+        return HttpResponse(json.dumps(msg), content_type='application/json')
 
 
 @csrf_exempt
