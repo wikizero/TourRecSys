@@ -2,13 +2,31 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect, HttpResponse, render_to_response
 from django.contrib.auth import authenticate, login, logout
+from django.forms.models import model_to_dict
 from models import *
 import random
 import json
 
 
 def init(request):
-    return render(request, 'index.html')
+    if request.method == 'GET':
+        # 热门推荐 按评分排序
+        # 根据位置定位 省份
+        hot = View.objects.filter(city=u'桂林').order_by('view_rate')[:7]
+
+        # 随机推荐
+        rand = View.objects.filter(city=u'桂林').order_by('view_rate')[::-1]
+
+        # 猜你喜欢
+        guess = View.objects.filter(city__in=[u'桂林', u'南宁'])
+
+        data = {
+            'hot': hot,
+            'rand': rand,
+            'guess': guess
+        }
+
+        return render(request, 'index.html', data)
 
 
 def detail(request):

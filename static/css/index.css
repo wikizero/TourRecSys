@@ -86,7 +86,7 @@
 }
 
 .content_part2{
-    height: 580px;
+    height: 610px;
 }
 
 #content2{
@@ -180,4 +180,10 @@
     font-size: 20px;
     margin-bottom: 18px;
     color: #fff;
+}
+
+#content3{
+    font-size: 26px;
+    font-family: "Microsoft YaHei";
+    color: #FF8C69;
 }

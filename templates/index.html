@@ -2,35 +2,34 @@
 {% load staticfiles %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="{% static 'css/components/slideshow.min.css' %}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="{% static 'css/components/slidenav.min.css' %}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="{% static 'css/components/dotnav.min.css' %}" rel="stylesheet" type="text/css"/>
-    <script src="{% static 'js/components/slideshow.min.js' %}"></script>
-    <script src="{% static 'js/components/parallax.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{% static 'css/components/slideshow.min.css' %}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{% static 'css/components/slidenav.min.css' %}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{% static 'css/components/dotnav.min.css' %}" rel="stylesheet" type="text/css"/>
+<script src="{% static 'js/components/slideshow.min.js' %}"></script>
+<script src="{% static 'js/components/parallax.min.js' %}"></script>
 {% endblock %}
 
 {% block content %}
-    <div id="slider" class="uk-slidenav-position"
-         data-uk-slideshow="{height: '480px', autoplay:true, autoplayInterval: 3000}">
-        <ul class="uk-slideshow">
-            <li><img src="{% static 'images/0.jpg' %}"></li>
-        </ul>
-        <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous slidenav"
-           data-uk-slideshow-item="previous"></a>
-        <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next slidenav" data-uk-slideshow-item="next"></a>
-        <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-text-center uk-flex-center">
-            <li data-uk-slideshow-item="0"><a href=""></a></li>
-        </ul>
-        <div class="e_searchbox">
-            <form action="" target="_blank">
-                <div class="search_inputbox">
-                    <input autocomplete="off" name="q" type="text" class="e_search_input" value="搜索城市、国家、目的地…"
-                           data-detect-oninput="1">
-                </div>
-                <span class="btn_search" title="搜索" data-beacon="Place_search_button"><span>GO</span></span>
-            </form>
-        </div>
+<div id="slider" class="uk-slidenav-position"
+     data-uk-slideshow="{height: '480px', autoplay:true, autoplayInterval: 3000}">
+    <ul class="uk-slideshow">
+        <li><img src="{% static 'images/0.jpg' %}"></li>
+    </ul>
+    <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous slidenav"
+       data-uk-slideshow-item="previous"></a>
+    <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next slidenav" data-uk-slideshow-item="next"></a>
+    <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-text-center uk-flex-center">
+        <li data-uk-slideshow-item="0"><a href=""></a></li>
+    </ul>
+    <div class="e_searchbox">
+        <form action="" target="_blank">
+            <div class="search_inputbox">
+                <input autocomplete="off" name="q" type="text" class="e_search_input" value="搜索城市、国家、目的地…"
+                       data-detect-oninput="1">
+            </div>
+            <span class="btn_search" title="搜索" data-beacon="Place_search_button"><span>GO</span></span>
+        </form>
     </div>
     <div id="tour_content">
         <div class="content_part1">
@@ -53,126 +52,117 @@
                                 <p class="uk-text-large">这段文字的动画会在其抵达时候中部前持续发生。</p>
                             </div>
                         </div>
-                    </li>
-                </ul>
-                <ul class="img_grid2">
-                    <li>
-                        <figure class="uk-overlay uk-overlay-hover city_name">
-                            <img class="small_img" src="{% static 'images/0.jpg' %}">
-                            <span class="span_city_name">成都</span>
-                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure class="uk-overlay uk-overlay-hover city_name">
-                            <img class="small_img" src="{% static 'images/0.jpg' %}">
-                            <span class="span_city_name">成都</span>
-                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure class="uk-overlay uk-overlay-hover city_name">
-                            <img class="small_img" src="{% static 'images/0.jpg' %}">
-                            <span class="span_city_name">成都</span>
-                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                </ul>
-                <ul class="img_grid2">
-                    <li>
-                        <figure class="uk-overlay uk-overlay-hover city_name">
-                            <img class="small_img" src="{% static 'images/0.jpg' %}">
-                            <span class="span_city_name">成都</span>
-                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure class="uk-overlay uk-overlay-hover city_name">
-                            <img class="small_img" src="{% static 'images/0.jpg' %}">
-                            <span class="span_city_name">成都</span>
-                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure class="uk-overlay uk-overlay-hover city_name">
-                            <img class="small_img" src="{% static 'images/0.jpg' %}">
-                            <span class="span_city_name">成都</span>
-                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="content_part2">
-            <h2 id="content2">还没想好去哪？</h2>
-            <div class="img_list2">
-                <ul class="img_grid1">
-                    <li>
-                        <figure class="uk-overlay uk-overlay-hover">
-                            <img class="uk-overlay-scale box_big_img" src="{% static 'images/0.jpg' %}">
-                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                </ul>
-                <ul class="img_grid3" style="padding-top: 10px;">
-                    <li>
-                        <figure class="uk-overlay uk-overlay-hover">
-                            <img class="uk-overlay-scale little_img" src="{% static 'images/0.jpg' %}">
-                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure class="uk-overlay uk-overlay-hover">
-                            <img class="uk-overlay-scale little_img" src="{% static 'images/0.jpg' %}">
-                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure class="uk-overlay uk-overlay-hover">
-                            <img class="uk-overlay-scale little_img" src="{% static 'images/0.jpg' %}">
-                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                </ul>
-                <ul class="img_grid3">
-                    <li>
-                        <figure class="uk-overlay uk-overlay-hover">
-                            <img class="uk-overlay-scale little_img1" src="{% static 'images/0.jpg' %}">
-                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure class="uk-overlay uk-overlay-hover">
-                            <img class="uk-overlay-scale little_img2" src="{% static 'images/0.jpg' %}">
-                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="img_grid2">
+                {% for h in hot|slice:"1:4" %}
+                <li>
+                    <figure class="uk-overlay uk-overlay-hover city_name">
+                        <img class="small_img" src="{% static 'images/imgs/' %}{{ h.id }}_1.png">
+                        <span class="span_city_name">{{h.view_name}}</span>
+                        <figcaption
+                                class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
+                            <p>{{ h.view_desc|truncatechars:28 }}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                {% endfor %}
+            </ul>
+            <ul class="img_grid2">
+               {% for h in hot|slice:"4:7" %}
+                <li>
+                    <figure class="uk-overlay uk-overlay-hover city_name">
+                        <img class="small_img" src="{% static 'images/imgs/' %}{{ h.id }}_1.png">
+                        <span class="span_city_name">{{h.view_name}}</span>
+                        <figcaption
+                                class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
+                            <p>{{ h.view_desc|truncatechars:28 }}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
+    <div class="content_part2">
+        <h2 id="content2">还没想好去哪？</h2>
+        <div class="img_list2">
+            <ul class="img_grid1">
+                <li>
+                    <figure class="uk-overlay uk-overlay-hover">
+                        <img class="uk-overlay-scale box_big_img" src="{% static 'images/imgs/' %}{{ rand.0.id }}_4.png">
+                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
+                            <p>{{ rand.0.view_desc|truncatechars:28 }}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+            <ul class="img_grid3" style="padding-top: 10px;">
+                 {% for r in rand|slice:"1:4" %}
+                <li>
+                    <figure class="uk-overlay uk-overlay-hover">
+                        <img class="uk-overlay-scale little_img" src="{% static 'images/imgs/' %}{{ r.id }}_1.png">
+                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
+                            <p>{{ r.view_desc|truncatechars:28 }}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                {% endfor %}
+            </ul>
+            <ul class="img_grid3">
+                <li>
+                    <figure class="uk-overlay uk-overlay-hover">
+                        <img class="uk-overlay-scale little_img1" src="{% static 'images/imgs/' %}{{ rand.4.id }}_1.png">
+                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
+                            <p>{{ rand.4.view_desc|truncatechars:28 }}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure class="uk-overlay uk-overlay-hover">
+                        <img class="uk-overlay-scale little_img2" src="{% static 'images/imgs/' %}{{ rand.5.id }}_1.png">
+                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
+                            <p>{{ rand.5.view_desc|truncatechars:28 }}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content_part1">
+        <h2 id="content3" style="">猜你喜欢</h2>
+        <div class="img_list guess-like" >
+            <ul class="img_grid2">
+                 {% for g in guess|slice:":5" %}
+                <li>
+                    <figure class="uk-overlay uk-overlay-hover city_name">
+                        <img class="small_img" src="{% static 'images/imgs/' %}{{ g.id }}_1.png">
+                        <span class="span_city_name">{{g.view_name}}</span>
+                        <figcaption
+                                class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
+                            <p>{{ g.view_desc|truncatechars:28 }}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                {% endfor %}
+            </ul>
+            <ul class="img_grid2">
+               {% for g in guess|slice:"5:10" %}
+                <li>
+                    <figure class="uk-overlay uk-overlay-hover city_name">
+                        <img class="small_img" src="{% static 'images/imgs/' %}{{ g.id }}_1.png">
+                        <span class="span_city_name">{{g.view_name}}</span>
+                        <figcaption
+                                class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
+                            <p>{{ g.view_desc|truncatechars:28 }}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
 {% endblock content %}
