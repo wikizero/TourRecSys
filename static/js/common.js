@@ -1,7 +1,6 @@
 $(function () {
     $("#nav li a").mouseenter(function () {
         $(this).css("background", "#008CD6")
-<<<<<<< HEAD
     });
 
     $("#nav li a").mouseleave(function () {
@@ -19,12 +18,12 @@ $(function () {
         }
     });
 
-});
-=======
-    })
+    $(".city_name").mouseenter(function () {
+        $(this).find("span").css("display", "none")
+    });
 
-    $("#nav li a").mouseleave(function () {
-        $(this).css("background", "#4C5A65")
-    })
-})
->>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
+    $(".city_name").mouseleave(function () {
+        $(this).find("span").css("display", "block")
+    });
+
+});

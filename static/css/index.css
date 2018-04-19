@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 #slider{
     min-width: 1200px;
     position: relative;
 }
 
-=======
->>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
 .slidenav{
     display: block !important;
     background: #000000;
@@ -35,6 +32,7 @@
 .big_img{
     width: 468px;
     height: 412px;
+    background-size: 468px 412px !important;
 }
 
 .small_img{
@@ -46,15 +44,11 @@
     height: 433px;
 }
 
-<<<<<<< HEAD
 .img_list2{
     height: 480px;
 }
 
 .img_list ul, .img_list2 ul{
-=======
-.img_list ul{
->>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
     float: left;
 }
 
@@ -67,16 +61,12 @@
     padding: 10px 0 10px 0;;
 }
 
-<<<<<<< HEAD
 .img_grid3{
     margin: 0;
     padding: 3px 0 0 0;
 }
 
 .img_grid1 li, .img_grid2 li, .img_grid3 li{
-=======
-.img_grid1 li{
->>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
     float: left;
     display: inline-block;
 }
@@ -85,7 +75,6 @@
     padding: 0 0 0 17px;
     display: inline-block;
 }
-<<<<<<< HEAD
 
 .img_grid3 li{
     padding: 0 0 0 3px;
@@ -181,5 +170,14 @@
     border-radius: 0 5px 5px 0;
     cursor: pointer;
 }
-=======
->>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
+
+.span_city_name{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 18px;
+    color: #fff;
+}

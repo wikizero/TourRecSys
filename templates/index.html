@@ -2,177 +2,177 @@
 {% load staticfiles %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css"/>
-<link rel="stylesheet" href="{% static 'css/components/slideshow.min.css' %}" rel="stylesheet" type="text/css"/>
-<link rel="stylesheet" href="{% static 'css/components/slidenav.min.css' %}" rel="stylesheet" type="text/css"/>
-<link rel="stylesheet" href="{% static 'css/components/dotnav.min.css' %}" rel="stylesheet" type="text/css"/>
-<script src="{% static 'js/components/slideshow.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/components/slideshow.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/components/slidenav.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/components/dotnav.min.css' %}" rel="stylesheet" type="text/css"/>
+    <script src="{% static 'js/components/slideshow.min.js' %}"></script>
+    <script src="{% static 'js/components/parallax.min.js' %}"></script>
 {% endblock %}
 
 {% block content %}
-<<<<<<< HEAD
-<div id="slider" class="uk-slidenav-position" data-uk-slideshow="{height: '480px', autoplay:true, autoplayInterval: 3000}">
-    <ul class="uk-slideshow">
-        <li><img src="{% static 'images/0.jpg' %}"></li>
-=======
-<div class="uk-slidenav-position" data-uk-slideshow="{height: '400px', autoplay:true, autoplayInterval: 3000}">
-    <ul class="uk-slideshow">
-        <li><img src="{% static 'images/0.jpg' %}"></li>
-        <li><img src="{% static 'images/1.jpg' %}"></li>
->>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
-    </ul>
-    <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous slidenav" data-uk-slideshow-item="previous"></a>
-    <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next slidenav" data-uk-slideshow-item="next"></a>
-    <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-text-center uk-flex-center">
-        <li data-uk-slideshow-item="0"><a href=""></a></li>
-<<<<<<< HEAD
-    </ul>
-
-    <div class="e_searchbox">
-        <form action="" target="_blank">
-            <div class="search_inputbox">
-                <input autocomplete="off" name="q" type="text" class="e_search_input" value="搜索城市、国家、目的地…" data-detect-oninput="1">
+    <div id="slider" class="uk-slidenav-position"
+         data-uk-slideshow="{height: '480px', autoplay:true, autoplayInterval: 3000}">
+        <ul class="uk-slideshow">
+            <li><img src="{% static 'images/0.jpg' %}"></li>
+        </ul>
+        <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous slidenav"
+           data-uk-slideshow-item="previous"></a>
+        <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next slidenav" data-uk-slideshow-item="next"></a>
+        <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-text-center uk-flex-center">
+            <li data-uk-slideshow-item="0"><a href=""></a></li>
+        </ul>
+        <div class="e_searchbox">
+            <form action="" target="_blank">
+                <div class="search_inputbox">
+                    <input autocomplete="off" name="q" type="text" class="e_search_input" value="搜索城市、国家、目的地…"
+                           data-detect-oninput="1">
+                </div>
+                <span class="btn_search" title="搜索" data-beacon="Place_search_button"><span>GO</span></span>
+            </form>
+        </div>
+    </div>
+    <div id="tour_content">
+        <div class="content_part1">
+            <h2 id="content1">热门推荐</h2>
+            <div class="img_list">
+                <ul class="img_grid1">
+                    <li>
+                        {#                    <figure class="uk-overlay uk-overlay-hover">#}
+                        {#                        <img class="big_img" src="{% static 'images/0.jpg' %}">#}
+                        {#                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">#}
+                        {#                            <p>Lorem ipsum dolor sit amet.</p>#}
+                        {#                        </figcaption>#}
+                        {#                    </figure>#}
+                        <div class="uk-margin uk-text-contrast uk-text-center uk-flex uk-flex-center uk-flex-middle big_img"
+                             style="background-image: url({% static 'images/0.jpg' %}); background-repeat: no-repeat">
+                            <div class="uk-width-medium-1-2"
+                                 data-uk-parallax="{opacity: '0,1', scale: '0,1', viewport: '0.5'}"
+                                 style="transform: scale(1); opacity: 1;">
+                                <h1 class="uk-text-contrast">Heading</h1>
+                                <p class="uk-text-large">这段文字的动画会在其抵达时候中部前持续发生。</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="img_grid2">
+                    <li>
+                        <figure class="uk-overlay uk-overlay-hover city_name">
+                            <img class="small_img" src="{% static 'images/0.jpg' %}">
+                            <span class="span_city_name">成都</span>
+                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="uk-overlay uk-overlay-hover city_name">
+                            <img class="small_img" src="{% static 'images/0.jpg' %}">
+                            <span class="span_city_name">成都</span>
+                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="uk-overlay uk-overlay-hover city_name">
+                            <img class="small_img" src="{% static 'images/0.jpg' %}">
+                            <span class="span_city_name">成都</span>
+                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+                <ul class="img_grid2">
+                    <li>
+                        <figure class="uk-overlay uk-overlay-hover city_name">
+                            <img class="small_img" src="{% static 'images/0.jpg' %}">
+                            <span class="span_city_name">成都</span>
+                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="uk-overlay uk-overlay-hover city_name">
+                            <img class="small_img" src="{% static 'images/0.jpg' %}">
+                            <span class="span_city_name">成都</span>
+                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="uk-overlay uk-overlay-hover city_name">
+                            <img class="small_img" src="{% static 'images/0.jpg' %}">
+                            <span class="span_city_name">成都</span>
+                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-overlay-slide-bottom">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
             </div>
-            <span class="btn_search" title="搜索" data-beacon="Place_search_button"><span>GO</span></span>
-        </form>
-    </div>
-</div>
-<div id="tour_content">
-    <div class="content_part1">
-=======
-        <li data-uk-slideshow-item="1"><a href=""></a></li>
-    </ul>
-</div>
-<div id="tour_content">
-    <div>
->>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
-        <h2 id="content1">热门推荐</h2>
-        <div class="img_list">
-            <ul class="img_grid1">
-                <li>
-                    <figure class="uk-overlay uk-overlay-hover">
-                        <img class="big_img" src="{% static 'images/0.jpg' %}">
-                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>
-            <ul class="img_grid2">
-                <li>
-                    <figure class="uk-overlay uk-overlay-hover">
-                        <img class="small_img" src="{% static 'images/0.jpg' %}">
-                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure class="uk-overlay uk-overlay-hover">
-                        <img class="small_img" src="{% static 'images/0.jpg' %}">
-                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure class="uk-overlay uk-overlay-hover">
-                        <img class="small_img" src="{% static 'images/0.jpg' %}">
-                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>
-            <ul class="img_grid2">
-                <li>
-                    <figure class="uk-overlay uk-overlay-hover">
-                        <img class="small_img" src="{% static 'images/0.jpg' %}">
-                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure class="uk-overlay uk-overlay-hover">
-                        <img class="small_img" src="{% static 'images/0.jpg' %}">
-                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure class="uk-overlay uk-overlay-hover">
-                        <img class="small_img" src="{% static 'images/0.jpg' %}">
-                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>
         </div>
-<<<<<<< HEAD
-    </div>
-    <div class="content_part2">
-        <h2 id="content2">还没想好去哪？</h2>
-        <div class="img_list2">
-            <ul class="img_grid1">
-                <li>
-                    <figure class="uk-overlay uk-overlay-hover">
-                        <img class="uk-overlay-scale box_big_img" src="{% static 'images/0.jpg' %}">
-                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>
-            <ul class="img_grid3" style="padding-top: 10px;">
-                <li>
-                    <figure class="uk-overlay uk-overlay-hover">
-                        <img class="uk-overlay-scale little_img" src="{% static 'images/0.jpg' %}">
-                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure class="uk-overlay uk-overlay-hover">
-                        <img class="uk-overlay-scale little_img" src="{% static 'images/0.jpg' %}">
-                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure class="uk-overlay uk-overlay-hover">
-                        <img class="uk-overlay-scale little_img" src="{% static 'images/0.jpg' %}">
-                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>
-            <ul class="img_grid3">
-                <li>
-                    <figure class="uk-overlay uk-overlay-hover">
-                        <img class="uk-overlay-scale little_img1" src="{% static 'images/0.jpg' %}">
-                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure class="uk-overlay uk-overlay-hover">
-                        <img class="uk-overlay-scale little_img2" src="{% static 'images/0.jpg' %}">
-                        <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>
-=======
->>>>>>> cdd11c6ff9e43b14476997ed85ca3f324a331da7
+        <div class="content_part2">
+            <h2 id="content2">还没想好去哪？</h2>
+            <div class="img_list2">
+                <ul class="img_grid1">
+                    <li>
+                        <figure class="uk-overlay uk-overlay-hover">
+                            <img class="uk-overlay-scale box_big_img" src="{% static 'images/0.jpg' %}">
+                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+                <ul class="img_grid3" style="padding-top: 10px;">
+                    <li>
+                        <figure class="uk-overlay uk-overlay-hover">
+                            <img class="uk-overlay-scale little_img" src="{% static 'images/0.jpg' %}">
+                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="uk-overlay uk-overlay-hover">
+                            <img class="uk-overlay-scale little_img" src="{% static 'images/0.jpg' %}">
+                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="uk-overlay uk-overlay-hover">
+                            <img class="uk-overlay-scale little_img" src="{% static 'images/0.jpg' %}">
+                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+                <ul class="img_grid3">
+                    <li>
+                        <figure class="uk-overlay uk-overlay-hover">
+                            <img class="uk-overlay-scale little_img1" src="{% static 'images/0.jpg' %}">
+                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="uk-overlay uk-overlay-hover">
+                            <img class="uk-overlay-scale little_img2" src="{% static 'images/0.jpg' %}">
+                            <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom uk-ignore">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 {% endblock content %}
