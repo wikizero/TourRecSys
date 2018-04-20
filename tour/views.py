@@ -193,6 +193,7 @@ def search(request):
         return render(request, 'search.html', {'views': views})
 
 
+@login_required(login_url='/login')
 def collection(request):
     views = Collection.objects.filter(user=request.user)
     return render(request, 'collection.html', {'views': views})
