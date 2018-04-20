@@ -15,31 +15,31 @@
 
 <script>
 $(function(){
-            $('.comment_content').val('')
-           // 提交评论表单
-            $('#submit_btn').click(function () {
-                comment = $('.comment_content').val()
-                if (comment == ''){
-                    UIkit.notify('好歹输入点东西嘛，请先输入评论内容再提交！', {status:'danger', timeout : 1500});
-                    return false
+    $('.comment_content').val('')
+   // 提交评论表单
+    $('#submit_btn').click(function () {
+        comment = $('.comment_content').val()
+        if (comment == ''){
+            UIkit.notify('好歹输入点东西嘛，请先输入评论内容再提交！', {status:'danger', timeout : 1500});
+            return false
+        }
+        $.ajax({
+            type:'post',
+            url:'/detail',
+            data:{
+                'text': comment,
+                'id': '{{ view.id }}'
+            },
+            success: function(msg){
+                UIkit.notify(msg.msg, {status: msg.type, timeout: 1500});
+                if (msg.type == 'success'){
+                    setTimeout(function(){
+                        location.reload()
+                    }, 1500)
                 }
-                $.ajax({
-                    type:'post',
-                    url:'/detail',
-                    data:{
-                        'text': comment,
-                        'id': '{{ view.id }}'
-                    },
-                    success: function(msg){
-                        UIkit.notify(msg.msg, {status: msg.type, timeout: 1500});
-                        if (msg.type == 'success'){
-                            setTimeout(function(){
-                                location.reload()
-                            }, 1500)
-                        }
-                    }
-                })
-            })
+            }
+        })
+    })
 })
 
 </script>
