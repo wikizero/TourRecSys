@@ -100,14 +100,17 @@ $(function(){
                     </div>
                 </div>
                 <div id="comment_box" class="cusClearFix">
-                    <strong class="rating_num left" property="v:average">7.3</strong>
+                    <strong class="rating_num left" property="v:average">{{ rate }}</strong>
                     <div class="left">
                         <div id="star"></div>
-                        <span id="comment_num">87180个人评价</span>
+                        <span id="comment_num">{{ pn }}个人评价</span>
                     </div>
-                    <div class="left">
-                        <!--span id="collect" class="am-icon-heart">&nbsp;收藏</span-->   <!--已收藏-->
-                        <span id="collect" class="am-icon-heart-o">&nbsp;收藏</span> <!--未收藏-->
+                    <div class="left" style="cursor:pointer">
+                        {% if collection %}
+                        <span id="collect" class="am-icon-heart">&nbsp;收藏</span>
+                        {% else %}
+                        <span id="collect" class="am-icon-heart-o">&nbsp;收藏</span>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -220,7 +223,7 @@ $(function(){
     </div>
 </div>
     <script>
-        $('#star').raty({path: '{% static 'lib/img' %}', readOnly: true, score: 3})
+        $('#star').raty({path: '{% static 'lib/img' %}', readOnly: true, score: {{ rate }}})
         $('#star1').raty({
             path: '{% static 'lib/img' %}',
             click: function(score, evt) {
@@ -238,6 +241,45 @@ $(function(){
                 })
 
             }
+        })
+
+        $('#collect').click(function(){
+
+            type = $(this).attr('class')
+
+            if(type=='am-icon-heart-o'){
+                // 点击收藏
+                $.ajax({
+                    type:'post',
+                    url:'/detail',
+                    data:{
+                        'collection': 'collection-true',
+                        'id': '{{ view.id }}'
+                    },
+                    success: function(msg){
+                        UIkit.notify(msg.msg, {status: msg.type, timeout: 1500});
+                    }
+                })
+                $(this).removeAttr('class').attr('class', 'am-icon-heart')
+
+            }else if(type=='am-icon-heart'){
+                // 点击取消收藏
+                $.ajax({
+                    type:'post',
+                    url:'/detail',
+                    data:{
+                        'collection': 'collection-false',
+                        'id': '{{ view.id }}'
+                    },
+                    success: function(msg){
+                        UIkit.notify(msg.msg, {status: msg.type, timeout: 1500});
+                    }
+                })
+                $(this).removeAttr('class').attr('class', 'am-icon-heart-o')
+            }
+
+
+
         })
     </script>
 {% endblock content %}

@@ -51,3 +51,12 @@ class Score(models.Model):
 
     def __unicode__(self):
         return self.user.username
+
+
+class Collection(models.Model):
+    user = models.ForeignKey(User)
+    view = models.ForeignKey(View)
+    comment_date = models.DateTimeField(blank=True, auto_now=True)
+
+    def __unicode__(self):
+        return self.user.username

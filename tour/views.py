@@ -1,8 +1,8 @@
 # coding:utf-8
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render, redirect, HttpResponse, render_to_response
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
-from django.forms.models import model_to_dict
+from django.contrib.auth.decorators import login_required
 from models import *
 import random
 import json
@@ -30,6 +30,7 @@ def init(request):
 
 
 @csrf_exempt
+@login_required(login_url='/login')
 def detail(request):
     if request.method == 'GET':
         view_id = request.GET.get('id', False)
@@ -44,14 +45,25 @@ def detail(request):
         # 评分统计
         score = Score.objects.filter(view=view)
         pn = len(score)
-        rate = round(sum(int(s.rate) for s in score)*1.0/pn, 1)
+        rate = round(sum(int(s.rate) for s in score) * 1.0 / pn, 1) if pn else 0.0
 
-        return render(request, 'detail.html', {'view': view, 'sim':sim, 'comments':comments, 'pn': pn, 'rate': rate})
+        collection = Collection.objects.filter(view=view, user=request.user)
+
+        data = {
+            'view': view,
+            'sim': sim,
+            'comments': comments,
+            'pn': pn,
+            'rate': rate,
+            'collection': collection
+        }
+        return render(request, 'detail.html', data)
 
     elif request.method == 'POST':
         comment = request.POST.get('text', False)
         view_id = request.POST.get('id', False)
         score = request.POST.get('score', False)
+        collection = request.POST.get('collection', False)
 
         view = View.objects.get(id=view_id)
 
@@ -75,6 +87,18 @@ def detail(request):
             else:
                 Score.objects.create(user=request.user, view=view, rate=score)
             msg['msg'] = u'感谢您的评分!'
+            msg['type'] = 'success'
+            return HttpResponse(json.dumps(msg), content_type='application/json')
+
+        if collection:
+            if collection == 'collection-true':
+                Collection.objects.create(user=request.user, view=view)
+                msg['msg'] = u'收藏成功!'
+
+            elif collection == 'collection-false':
+                Collection.objects.filter(user=request.user, view=view).delete()
+                msg['msg'] = u'已取消收藏!'
+
             msg['type'] = 'success'
             return HttpResponse(json.dumps(msg), content_type='application/json')
 
