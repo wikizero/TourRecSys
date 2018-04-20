@@ -38,9 +38,15 @@ def detail(request):
         # 类似推荐
         sim = View.objects.filter(city__in=[u'桂林', u'南宁'])
 
+        # 该景点的评论
         comments = Comment.objects.filter(view=view).order_by('comment_date')[::-1]
 
-        return render(request, 'detail.html', {'view': view, 'sim':sim, 'comments':comments})
+        # 评分统计
+        score = Score.objects.filter(view=view)
+        pn = len(score)
+        rate = round(sum(int(s.rate) for s in score)*1.0/pn, 1)
+
+        return render(request, 'detail.html', {'view': view, 'sim':sim, 'comments':comments, 'pn': pn, 'rate': rate})
 
     elif request.method == 'POST':
         comment = request.POST.get('text', False)
@@ -48,7 +54,6 @@ def detail(request):
         score = request.POST.get('score', False)
 
         view = View.objects.get(id=view_id)
-        print view
 
         msg = {
             'msg': u'发生未知错误',
@@ -62,9 +67,18 @@ def detail(request):
             return HttpResponse(json.dumps(msg), content_type='application/json')
 
         if score:
+            score = int(score)
+            s = Score.objects.filter(user=request.user, view=view)
+            if s:
+                s[0].rate = score
+                s[0].save()
+            else:
+                Score.objects.create(user=request.user, view=view, rate=score)
             msg['msg'] = u'感谢您的评分!'
             msg['type'] = 'success'
             return HttpResponse(json.dumps(msg), content_type='application/json')
+
+        return HttpResponse(json.dumps(msg), content_type='application/json')
 
 
 @csrf_exempt
