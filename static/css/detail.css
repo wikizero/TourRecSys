@@ -119,6 +119,10 @@
     color: #333;
     margin-top: 20px;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 235px;
 }
 
 #comment_box{
@@ -129,4 +133,13 @@
 
 #star, #star1{
     width: 120px !important;
+}
+
+.c_item{
+    margin-bottom: 10px;
+}
+
+#collect{
+    line-height: 56px;
+    margin-left: 20px;
 }
