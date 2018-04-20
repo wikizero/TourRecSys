@@ -45,8 +45,11 @@ def detail(request):
     elif request.method == 'POST':
         comment = request.POST.get('text', False)
         view_id = request.POST.get('id', False)
+        score = request.POST.get('score', False)
 
         view = View.objects.get(id=view_id)
+        print view
+
         msg = {
             'msg': u'发生未知错误',
             'type': 'danger'
@@ -56,7 +59,12 @@ def detail(request):
             msg['msg'] = u'评论提交成功，页面即将刷新!'
             msg['type'] = 'success'
 
-        return HttpResponse(json.dumps(msg), content_type='application/json')
+            return HttpResponse(json.dumps(msg), content_type='application/json')
+
+        if score:
+            msg['msg'] = u'感谢您的评分!'
+            msg['type'] = 'success'
+            return HttpResponse(json.dumps(msg), content_type='application/json')
 
 
 @csrf_exempt

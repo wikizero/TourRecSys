@@ -94,11 +94,12 @@ $(function(){
                 {#                <span class="am-icon-heart"> 喜欢</span>#}
                 {#                <span class="am-icon-heart-o"> 不喜欢</span>#}
                 <div style="max-height: 415px">
-                    <h1 class="tit">南宁</h1>
+                    <h1 class="tit">{{ view.view_name }}</h1>
                     <div class="countbox">
-                        <div class="c_item">半城绿树半城楼，何处不逢老友粉，英雄牙倒酸嘢摊。只有到了南宁才会真切感受到这个城市的可爱之处。</div>
-                        <div class="c_item">建议游玩：<span class="sum">3</span>天。</div>
-                        <div class="c_item">无论你在何时到南宁，满满的绿意都会将你拥在清新的怀里。如果最佳季节满分100，每个季节都是85分左右吧。</div>
+                        <div class="c_item">{{ view.view_desc|truncatechars:65 }}</div>
+                        <!--<div class="c_item">建议游玩：<span class="sum">3</span>天。</div>-->
+                        <div class="c_item">{{ view.advise_time }}</div>
+                        <div class="c_item"></div>
                     </div>
                 </div>
                 <div id="comment_box" class="cusClearFix">
@@ -164,7 +165,7 @@ $(function(){
         <div class="am-panel am-panel-default" id="ep">
             <div class="am-panel-hd">评论</div>
             <div class="am-panel-bd">
-                <form action="" method="post" id="commentform">
+                <form id="commentform">
                         <textarea class="comment_content" name="comment_content" id="comment_content"
                                   placeholder="写下你的评论…" style="height: 84px;"></textarea>
                         <div class="bot_bar clearfix" style="opacity: 1;">
@@ -173,10 +174,10 @@ $(function(){
                                         class="icon iconfont icon-daima"></i></a>
                             </div>
                             <div>
-                                <div class="left">评价：
+                                <div class="left">景点评分：
                                     <div id="star1" style="display: inline-block;"></div>
                                 </div>
-                                <input id="submit_btn" type="submit" class="btn btn-redborder" value="发表评论">
+                                <input id="submit_btn" type="button" class="btn btn-redborder" value="发表评论">
                                 <div class="clear"></div>
                             </div>
                         </div>
@@ -216,13 +217,26 @@ $(function(){
             </div>
         </div>
     </div>
-
-
+</div>
     <script>
         $('#star').raty({path: '{% static 'lib/img' %}', readOnly: true, score: 3})
         $('#star1').raty({
             path: '{% static 'lib/img' %}',
-            click: function(score, evt) { alert(score )}
+            click: function(score, evt) {
+
+                $.ajax({
+                    type:'post',
+                    url:'/detail',
+                    data:{
+                        'score': score,
+                        'id': '{{ view.id }}'
+                    },
+                    success: function(msg){
+                        UIkit.notify(msg.msg, {status: msg.type, timeout: 1500});
+                    }
+                })
+
+            }
         })
     </script>
 {% endblock content %}

@@ -38,6 +38,7 @@ class Comment(models.Model):
     view = models.ForeignKey(View)
     comment = models.CharField(max_length=255, blank=True)
     comment_date = models.DateTimeField(blank=True, auto_now=True)
+    rate = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.user.username
