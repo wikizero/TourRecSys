@@ -12,11 +12,17 @@
     width: 1200px;
     margin: 0 auto 0;
     background: #FAFAFA;
+    position: relative;
 }
 
 #detail_slider{
     width:900px;
+    height: 520px;
     float: left;
+}
+
+#detail_slider img{
+    height: 520px;
 }
 
 #detail_slider_describe{
@@ -91,5 +97,49 @@
 #submit_btn{
     border: 1px solid #ca0c16;
     color: #ca0c16;
-    margin-left: 86.8%;
+    margin-right: 5.5%;
+    float: right;
+}
+
+#detail_slider_describe .rating_num {
+    color: #494949;
+    padding: 0 10px 0 0;
+    min-width: 22%;
+    font-size: 35px;
+}
+
+#comment_num{
+    font-size: 13px;
+}
+
+.tit{
+    line-height: 45px;
+    font-family: "microsoft yahei";
+    font-size: 30px;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 235px;
+}
+
+#comment_box{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+#star, #star1{
+    width: 120px !important;
+}
+
+.c_item{
+    margin-bottom: 10px;
+}
+
+#collect{
+    line-height: 56px;
+    margin-left: 20px;
 }

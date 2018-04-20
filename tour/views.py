@@ -1,8 +1,9 @@
 # coding:utf-8
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render, redirect, HttpResponse, render_to_response
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
-from django.forms.models import model_to_dict
+from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from models import *
 import random
 import json
@@ -29,6 +30,8 @@ def init(request):
         return render(request, 'index.html', data)
 
 
+@csrf_exempt
+@login_required(login_url='/login')
 def detail(request):
     if request.method == 'GET':
         view_id = request.GET.get('id', False)
@@ -36,7 +39,71 @@ def detail(request):
 
         # 类似推荐
         sim = View.objects.filter(city__in=[u'桂林', u'南宁'])
-        return render(request, 'detail.html', {'view': view, 'sim':sim})
+
+        # 该景点的评论
+        comments = Comment.objects.filter(view=view).order_by('comment_date')[::-1]
+
+        # 评分统计
+        score = Score.objects.filter(view=view)
+        pn = len(score)
+        rate = round(sum(int(s.rate) for s in score) * 1.0 / pn, 1) if pn else 0.0
+
+        collection = Collection.objects.filter(view=view, user=request.user)
+
+        data = {
+            'view': view,
+            'sim': sim,
+            'comments': comments,
+            'pn': pn,
+            'rate': rate,
+            'collection': collection
+        }
+        return render(request, 'detail.html', data)
+
+    elif request.method == 'POST':
+        comment = request.POST.get('text', False)
+        view_id = request.POST.get('id', False)
+        score = request.POST.get('score', False)
+        collection = request.POST.get('collection', False)
+
+        view = View.objects.get(id=view_id)
+
+        msg = {
+            'msg': u'发生未知错误',
+            'type': 'danger'
+        }
+        if comment:
+            Comment.objects.create(user=request.user, view=view, comment=comment)
+            msg['msg'] = u'评论提交成功，页面即将刷新!'
+            msg['type'] = 'success'
+
+            return HttpResponse(json.dumps(msg), content_type='application/json')
+
+        if score:
+            score = int(score)
+            s = Score.objects.filter(user=request.user, view=view)
+            if s:
+                s[0].rate = score
+                s[0].save()
+            else:
+                Score.objects.create(user=request.user, view=view, rate=score)
+            msg['msg'] = u'感谢您的评分!'
+            msg['type'] = 'success'
+            return HttpResponse(json.dumps(msg), content_type='application/json')
+
+        if collection:
+            if collection == 'collection-true':
+                Collection.objects.create(user=request.user, view=view)
+                msg['msg'] = u'收藏成功!'
+
+            elif collection == 'collection-false':
+                Collection.objects.filter(user=request.user, view=view).delete()
+                msg['msg'] = u'已取消收藏!'
+
+            msg['type'] = 'success'
+            return HttpResponse(json.dumps(msg), content_type='application/json')
+
+        return HttpResponse(json.dumps(msg), content_type='application/json')
 
 
 @csrf_exempt
@@ -115,4 +182,17 @@ def sign_out(request):
 
 
 def search(request):
-    return render(request, 'search.html')
+    if request.method == 'GET':
+        word = request.GET.get('word', False)
+        views = View.objects.filter(Q(province__contains=word) | Q(view_name__contains=word) | Q(city__contains=word))
+
+        for v in views:
+            score = Score.objects.filter(view=v)
+            v.view_rate = sum(s.rate for s in score)*1.0/len(score) if score else 0
+
+        return render(request, 'search.html', {'views': views})
+
+
+def collection(request):
+    views = Collection.objects.filter(user=request.user)
+    return render(request, 'collection.html', {'views': views})

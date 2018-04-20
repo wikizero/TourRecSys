@@ -1,0 +1,52 @@
+#content_search{
+    width: 1000px;
+    margin: 40px auto 0;
+}
+
+#input_box{
+    height: 43px;
+    border: 1px solid #dbdbdb;
+}
+
+#search_box{
+    width: 638px;
+    margin: 0 auto;
+}
+
+.list_ul{
+    list-style: none;
+    margin: 20px 0 0;
+}
+
+.list_li{
+    text-align: center;
+    height: 170px;
+    padding: 15px 0;
+}
+
+.list_li:not(:last-child){
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.list_li a img{
+    width: 230px;
+    height: 170px;
+}
+
+.sc_info{
+    display: inline-block;
+    height: 170px;
+    margin-left: 20px;
+    max-height: 80px;
+    max-width:690px;
+}
+
+.sc_info h2{
+    text-align: left;
+    margin-bottom: 0px;
+}
+
+.d_address, .d_brief{
+    text-align: left;
+    margin: 5px 0;
+}

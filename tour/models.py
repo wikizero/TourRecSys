@@ -31,3 +31,32 @@ class ExtUser(models.Model):
 
     def __unicode__(self):
         return self.user.username
+
+
+class Comment(models.Model):
+    user = models.ForeignKey(User)
+    view = models.ForeignKey(View)
+    comment = models.CharField(max_length=255, blank=True)
+    comment_date = models.DateTimeField(blank=True, auto_now=True)
+
+    def __unicode__(self):
+        return self.user.username
+
+
+class Score(models.Model):
+    user = models.ForeignKey(User)
+    view = models.ForeignKey(View)
+    rate = models.IntegerField(default=0)
+    comment_date = models.DateTimeField(blank=True, auto_now=True)
+
+    def __unicode__(self):
+        return self.user.username
+
+
+class Collection(models.Model):
+    user = models.ForeignKey(User)
+    view = models.ForeignKey(View)
+    comment_date = models.DateTimeField(blank=True, auto_now=True)
+
+    def __unicode__(self):
+        return self.user.username

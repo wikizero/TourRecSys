@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{% static 'css/components/slideshow.min.css' %}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{% static 'css/components/slidenav.min.css' %}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{% static 'css/components/dotnav.min.css' %}" rel="stylesheet" type="text/css"/>
+<script src="{% static 'js/components/slideshow.min.js' %}"></script>
+<script src="{% static 'js/components/parallax.min.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<table class="uk-table uk-table-striped" style="width:600px; margin:10px auto">
+    <thead>
+    <tr>
+        <th>省份</th>
+        <th>城市</th>
+        <th>景点</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for v in views %}
+    <tr>
+        <td>{{ v.view.province }}</td>
+        <td>{{ v.view.city }}</td>
+        <td><a href="/detail?id={{ v.view.id }}">{{ v.view.view_name }}</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}
