@@ -37,6 +37,8 @@
     display: inline-block;
     height: 170px;
     margin-left: 20px;
+    max-height: 80px;
+    max-width:690px;
 }
 
 .sc_info h2{

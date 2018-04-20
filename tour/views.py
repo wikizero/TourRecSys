@@ -3,6 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from models import *
 import random
 import json
@@ -181,4 +182,17 @@ def sign_out(request):
 
 
 def search(request):
-    return render(request, 'search.html')
+    if request.method == 'GET':
+        word = request.GET.get('word', False)
+        views = View.objects.filter(Q(province__contains=word) | Q(view_name__contains=word) | Q(city__contains=word))
+
+        for v in views:
+            score = Score.objects.filter(view=v)
+            v.view_rate = sum(s.rate for s in score)*1.0/len(score) if score else 0
+
+        return render(request, 'search.html', {'views': views})
+
+
+def collection(request):
+    views = Collection.objects.filter(user=request.user)
+    return render(request, 'collection.html', {'views': views})

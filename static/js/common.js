@@ -13,9 +13,9 @@ $(function () {
 
     $(".e_search_input").blur(function () {
         var $this = $(this);
-        if(!$this.val()){
-            $this.val("搜索城市、国家、目的地…");
-        }
+//        if(!$this.val()){
+//            $this.val("搜索景点、城市…");
+//        }
     });
 
     $(".city_name").mouseenter(function () {

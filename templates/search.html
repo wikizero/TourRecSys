@@ -2,57 +2,50 @@
 {% load staticfiles %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'css/search.css' %}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css"/>
-    <script src="{% static 'lib/jquery.raty.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/search.css' %}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css"/>
+<script src="{% static 'lib/jquery.raty.min.js' %}"></script>
 {% endblock %}
 
 {% block content %}
-    <div id="content_search">
-        <div id="search_box" class="cusClearFix">
-            <form action="" target="_blank">
-                <div id="input_box" class="search_inputbox">
-                    <input autocomplete="off" name="q" type="text" class="e_search_input" value="搜索城市、国家、目的地…"
-                           data-detect-oninput="1">
-                </div>
-                <span class="btn_search" title="搜索" data-beacon="Place_search_button"><span>GO</span></span>
-            </form>
-        </div>
-
-        <div>
-            <ul class="list_ul">
-                <li class="list_li">
-                    <a class="left"><img src="https://img1.qunarzz.com/travel/d9/1611/74/b2ce1c9c98958bb5.png_r_480x360x95_7fa500b0.png"></a>
-                    <div class="sc_info left">
-                        <h2>南宁</h2>
-                        <div class="star"></div>
-                        <div class="d_address"><span class="b">地址：</span>广西壮族自治区南宁市中华路28号</div>
-                        <div class="d_brief"><span class="b">简介：</span>&#8203;南宁站地处广西壮族自治区首府，区域位置毗邻粤港澳，面向东南亚，背靠大西南，是广西物流重要集散地。</div>
-                    </div>
-                </li>
-                <li class="list_li">
-                    <a class="left"><img src="https://img1.qunarzz.com/travel/d9/1611/74/b2ce1c9c98958bb5.png_r_480x360x95_7fa500b0.png"></a>
-                    <div class="sc_info left">
-                        <h2>南宁</h2>
-                        <div class="star"></div>
-                        <div class="d_address"><span class="b">地址：</span>广西壮族自治区南宁市中华路28号</div>
-                        <div class="d_brief"><span class="b">简介：</span>&#8203;南宁站地处广西壮族自治区首府，区域位置毗邻粤港澳，面向东南亚，背靠大西南，是广西物流重要集散地。</div>
-                    </div>
-                </li>
-                <li class="list_li">
-                    <a class="left"><img src="https://img1.qunarzz.com/travel/d9/1611/74/b2ce1c9c98958bb5.png_r_480x360x95_7fa500b0.png"></a>
-                    <div class="sc_info left">
-                        <h2>南宁</h2>
-                        <div class="star"></div>
-                        <div class="d_address"><span class="b">地址：</span>广西壮族自治区南宁市中华路28号</div>
-                        <div class="d_brief"><span class="b">简介：</span>&#8203;南宁站地处广西壮族自治区首府，区域位置毗邻粤港澳，面向东南亚，背靠大西南，是广西物流重要集散地。</div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+<div id="content_search">
+    <div id="search_box" class="cusClearFix">
+        <form action="/search">
+            <div id="input_box" class="search_inputbox">
+                <input autocomplete="off" name="word" type="text" class="e_search_input" value="搜索景点、城市…"
+                       data-detect-oninput="1">
+            </div>
+            <span class="btn_search" title="搜索" onclick="$('.search_form').submit()" data-beacon="Place_search_button"><span>GO</span></span>
+        </form>
     </div>
 
-    <script>
-        $('.star').raty({path: '{% static 'lib/img' %}', readOnly: true, score: 3})
-    </script>
+    <div>
+        <ul class="list_ul">
+            {% if views %}
+            {% for v in views %}
+            <li class="list_li">
+                <a class="left" href="/detail?id={{ v.id }}"><img src="{% static 'images/imgs/' %}{{ v.id }}_1.png"></a>
+                <div class="sc_info left">
+                    <h2><a href="/detail?id={{ v.id }}">{{ v.view_name }}</a></h2>
+                    <div class="star{{ forloop.counter }}" ></div>
+                    <div class="d_address"><span class="b">地址：</span>{{ v.province }}, {{ v.city }}, {{ v.view_name }}
+                    </div>
+                    <div class="d_brief"><span class="b">简介：</span>&#8203;{{ v.view_desc|truncatechars:140 }}</div>
+                </div>
+
+                <script>
+                    $('.star{{ forloop.counter }}').raty({path: '{% static 'lib/img' %}', readOnly: true, score: {{ v.view_rate }}})
+                </script>
+
+            </li>
+            {% endfor %}
+            {% else %}
+            <li class="list_li">找不到相关记录</li>
+            {% endif %}
+
+        </ul>
+    </div>
+</div>
+
+
 {% endblock content %}

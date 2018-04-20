@@ -32,6 +32,9 @@ urlpatterns = [
     url(r'^register', views.register),
     url(r'^logout', views.sign_out),
 
-    #搜索
+    # 搜索
     url(r'^search', views.search),
+
+    # 收藏
+    url(r'^collection', views.collection),
 ]

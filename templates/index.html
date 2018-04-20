@@ -23,12 +23,12 @@
             <li data-uk-slideshow-item="0"><a href=""></a></li>
         </ul>
         <div class="e_searchbox">
-            <form action="" target="_blank">
+            <form action="/search" class="search_form">
                 <div class="search_inputbox">
-                    <input autocomplete="off" name="q" type="text" class="e_search_input" value="搜索城市、国家、目的地…"
+                    <input autocomplete="off" name="word" type="text" class="e_search_input" placeholder="搜索景点、城市…"
                            data-detect-oninput="1">
                 </div>
-                <span class="btn_search" title="搜索" data-beacon="Place_search_button"><span>GO</span></span>
+                <span class="btn_search" title="搜索" onclick="$('.search_form').submit()" data-beacon="Place_search_button"><span>GO</span></span>
             </form>
         </div>
     </div>
