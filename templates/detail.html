@@ -91,13 +91,10 @@ $(function(){
                 </ul>
             </div>
             <div id="detail_slider_describe">
-                {#                <span class="am-icon-heart"> 喜欢</span>#}
-                {#                <span class="am-icon-heart-o"> 不喜欢</span>#}
                 <div style="max-height: 415px">
                     <h1 class="tit">{{ view.view_name }}</h1>
                     <div class="countbox">
                         <div class="c_item">{{ view.view_desc|truncatechars:65 }}</div>
-                        <!--<div class="c_item">建议游玩：<span class="sum">3</span>天。</div>-->
                         <div class="c_item">{{ view.advise_time }}</div>
                         <div class="c_item"></div>
                     </div>
@@ -107,6 +104,10 @@ $(function(){
                     <div class="left">
                         <div id="star"></div>
                         <span id="comment_num">87180个人评价</span>
+                    </div>
+                    <div class="left">
+                        <!--span id="collect" class="am-icon-heart">&nbsp;收藏</span-->   <!--已收藏-->
+                        <span id="collect" class="am-icon-heart-o">&nbsp;收藏</span> <!--未收藏-->
                     </div>
                 </div>
             </div>
