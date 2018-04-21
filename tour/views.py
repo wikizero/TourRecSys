@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from algorithm import addr
+from algorithm import addr, ItemCF, UserCF
 from models import *
 import random
 import json
