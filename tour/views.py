@@ -4,22 +4,24 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from algorithm import addr
 from models import *
 import random
 import json
 
 
+@login_required(login_url='/login')
 def init(request):
     if request.method == 'GET':
-        # 热门推荐 按评分排序
-        # 根据位置定位 省份
-        hot = View.objects.filter(city=u'桂林').order_by('view_rate')[:7]
+        # 热门推荐 按评分排序 根据位置定位 省份
+        ip, address = addr.ip_info()  # 根据访问的IP定位位置
+        hot = View.objects.filter(city=u'南宁').order_by('view_rate')[::-1]
 
         # 随机推荐
-        rand = View.objects.filter(city=u'桂林').order_by('view_rate')[::-1]
+        rand = View.objects.order_by('?')[:10]
 
         # 猜你喜欢
-        guess = View.objects.filter(city__in=[u'桂林', u'南宁'])
+        guess = View.objects.order_by('?')[:10]
 
         data = {
             'hot': hot,
@@ -38,7 +40,7 @@ def detail(request):
         view = View.objects.filter(id=view_id).first()
 
         # 类似推荐
-        sim = View.objects.filter(city__in=[u'桂林', u'南宁'])
+        sim = View.objects.filter(city=view.city)
 
         # 该景点的评论
         comments = Comment.objects.filter(view=view).order_by('comment_date')[::-1]
@@ -112,8 +114,6 @@ def sign_in(request):
         username = request.POST.get('username', False)
         pw = request.POST.get('pw', False)
         user = authenticate(username=username, password=pw)
-        print username, pw
-        print user
         if user:
             login(request, user)
             return redirect('/')
