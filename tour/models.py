@@ -23,7 +23,9 @@ class View(models.Model):
 class ExtUser(models.Model):
     user = models.OneToOneField(User)
     number = models.IntegerField(primary_key=True)
+    age = models.IntegerField(blank=True, null=True)
     sex = models.CharField(max_length=2, blank=True, null=True)
+    address = models.CharField(max_length=30, blank=True, null=True)
     autograph = models.CharField(max_length=50, blank=True, null=True)
     greet = models.CharField(max_length=50, blank=True, null=True)
     labels = models.CharField(max_length=50, blank=True, null=True)

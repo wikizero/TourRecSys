@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{% static 'css/components/slideshow.min.css' %}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{% static 'css/components/slidenav.min.css' %}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{% static 'css/components/dotnav.min.css' %}" rel="stylesheet" type="text/css"/>
+<script src="{% static 'js/components/slideshow.min.js' %}"></script>
+<script src="{% static 'js/components/parallax.min.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<form class="uk-form uk-form-stacked" action="/info"  method="post" style="margin: 10px auto 380px auto; width:600px">
+     {% csrf_token %}
+    <p style="font-size:16px">请完善或修改个人信息</p>
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="form-s-it">用户名</label>
+        <div class="uk-form-controls">
+            <input id="form-s-it" placeholder="用户名" name="username" type="text" value="{{ user.username }}" style="width:300px">
+        </div>
+    </div>
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="form-s-ip">密码</label>
+        <div class="uk-form-controls">
+            <input id="form-s-ip" placeholder="请在这里输入新密码" name="password" type="password" style="width:300px">
+        </div>
+    </div>
+
+    <div class="uk-form-row">
+        <span class="uk-form-label">性别</span>
+        <div class="uk-form-controls">
+            <label><input name="sex" type="radio" value="男" checked> 男</label>
+            <label><input name="sex" type="radio" value="女" > 女</label>
+        </div>
+    </div>
+
+    <div class="uk-form-row">
+        <span class="uk-form-label">年龄</span>
+        <div class="uk-form-controls">
+            <input id="form-s-mix2" name="age" min="1" max="100" value="{{ user.extuser.age }}" class="uk-form-width-mini uk-form-small" type="number">
+        </div>
+    </div>
+
+    <div class="uk-form-row">
+        <label class="uk-form-label" for="form-s-it">地址</label>
+        <div class="uk-form-controls">
+            <input id="form-s-" placeholder="地址" type="text" name="address" value="{{ user.extuser.address }}" style="width:300px">
+        </div>
+    </div>
+
+    <a href="#" class="uk-button submit-btn" onclick="$('.uk-form').submit()" style="margin-top:15px">确认修改</a>
+
+</form>
+<script>
+
+</script>
+{% endblock content %}

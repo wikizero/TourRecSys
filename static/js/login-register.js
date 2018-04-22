@@ -38,8 +38,10 @@ $(function(){
             name = $('#username').val()
             pw = $('#pw').val()
             rpw = $('#rpw').val()
-            if (name == '' | pw == '' | rpw == ''){
-                UIkit.notify('用户名或密码不能为空！', {status: 'danger', timeout: 1500});
+            email = $('#email').val()
+
+            if (name == '' | pw == '' | rpw == ''| email == ''){
+                UIkit.notify('用户名、邮箱或密码不能为空！', {status: 'danger', timeout: 1500});
                 return false
             }
             if (pw != rpw){
@@ -51,6 +53,7 @@ $(function(){
                 url: '/register',
                 data: {
                     'username': name,
+                    'email':email,
                     'pw': pw,
                     'rpw': rpw
                 },
