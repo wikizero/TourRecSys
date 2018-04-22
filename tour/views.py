@@ -14,7 +14,7 @@ import json
 def init(request):
     if request.method == 'GET':
         # 热门推荐 按评分排序 根据位置定位 省份
-        ip, address = addr.ip_info()  # 根据访问的IP定位位置
+        # ip, address = addr.ip_info()  # 根据访问的IP定位位置
         hot = View.objects.filter(city=u'南宁').order_by('view_rate')[::-1]
 
         # 随机推荐
