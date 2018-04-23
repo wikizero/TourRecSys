@@ -37,4 +37,8 @@ urlpatterns = [
 
     # 收藏
     url(r'^collection', views.collection),
+
+    # personal info
+    url(r'^info', views.info),
+
 ]

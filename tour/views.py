@@ -139,12 +139,12 @@ def register(request):
     if request.method == 'POST':
         username = request.POST.get('username', False)
         pw = request.POST.get('pw', False)
-        rpw = request.POST.get('rpw', False)
+        email = request.POST.get('email', False)
 
         # 生成随机编号
         number = random.randint(1000000, 9999999)
         if not ExtUser.objects.filter(number=number):
-            user = User.objects.create_user(username=username, password=pw)
+            user = User.objects.create_user(username=username, password=pw, email=email)
             ExtUser.objects.create(user=user, number=number)
             user = authenticate(username=username, password=pw)
             login(request, user)
@@ -197,3 +197,29 @@ def search(request):
 def collection(request):
     views = Collection.objects.filter(user=request.user)
     return render(request, 'collection.html', {'views': views})
+
+
+@login_required(login_url='/login')
+@csrf_exempt
+def info(request):
+    if request.method == 'GET':
+        return render(request, 'info.html')
+    elif request.method == 'POST':
+        username = request.POST.get('username', False)
+        password = request.POST.get('password', False)
+        sex = request.POST.get('sex', False)
+        age = request.POST.get('age', False)
+        address = request.POST.get('address', False)
+
+        user = request.user
+        user.username = username
+        if password:
+            user.set_password(password)
+        user.extuser.sex = sex
+        user.extuser.age = age
+        user.extuser.address = address
+        user.extuser.save()
+        user.save()
+
+        return redirect('/login')
+
